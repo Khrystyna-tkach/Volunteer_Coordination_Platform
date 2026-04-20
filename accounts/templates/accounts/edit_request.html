@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <title>HelpBridge - Редагування</title>
+    <style>
+        body { background-color: #FFFFFF; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
+        header { 
+            background-color: #66A3FF; 
+            color: white; 
+            padding: 10px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 1px solid white; 
+        }
+        .logo-text { font-weight: bold; font-size: 20px; letter-spacing: 1px; }
+        .logout-icon { text-decoration: none; color: white; font-size: 28px; }
+        .container { max-width: 800px; margin: 50px auto; padding: 20px; }
+        .section-card { background-color: #99C2FF; border-radius: 30px; padding: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        h3 { text-align: center; color: #0047AB; margin-bottom: 30px; }
+        
+        .input-group { margin-bottom: 20px; display: flex; flex-direction: column; }
+        .input-group label { font-weight: bold; color: #0047AB; margin-bottom: 8px; text-transform: uppercase; font-size: 14px; }
+        .input-group input, .input-group textarea { padding: 12px; border-radius: 10px; border: 1px solid white; font-family: inherit; }
+        
+        .btn-group { display: flex; gap: 15px; margin-top: 20px; }
+        .btn-save { background-color: #2D63C8; color: white; border: none; padding: 12px 30px; border-radius: 10px; cursor: pointer; font-weight: bold; flex: 2; }
+        .btn-cancel { background-color: #003366; color: white; text-decoration: none; padding: 12px 30px; border-radius: 10px; text-align: center; font-weight: bold; flex: 1; }
+       
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo-text">HELPBRIDGE</div>
+    <a href="{% url 'logout' %}" class="logout-icon">⎗</a> 
+</header>
+
+<div class="container">
+    <section class="section-card">
+        <h3>РЕДАГУВАННЯ ЗАЯВКИ</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group">
+                <label>НАЗВА ПРОБЛЕМИ</label>
+                <input type="text" name="title" value="{{ req.title }}" required>
+            </div>
+            <div class="input-group">
+                <label>ОПИС ПРОБЛЕМИ</label>
+                <textarea name="description" rows="4" required>{{ req.description }}</textarea>
+            </div>
+            <div class="input-group">
+                <label>КОНТАКТНІ ДАНІ</label>
+                <input type="text" name="contact_info" value="{{ req.contact_info }}" required>
+            </div>
+            <div class="input-group">
+                <label>ЛОКАЦІЯ</label>
+                <input type="text" name="location" value="{{ req.location }}" required>
+            </div>
+            
+            <div class="btn-group">
+                <button type="submit" class="btn-save">ЗБЕРЕГТИ ЗМІНИ</button>
+                <a href="{% url 'admin_page' %}" class="btn-cancel">СКАСУВАТИ</a>
+            </div>
+        </form>
+    </section>
+</div>
+
+
+{% include 'includes/footer.html' %}
+
+</body>
+</html>
