@@ -118,6 +118,28 @@
             margin-top: 20px;
             font-size: 13px;
         }
+
+        .error-message {
+    background-color: #f8d7da; 
+    padding: 15px 20px; 
+    border-radius: 10px; 
+    border: 1px solid #f5c6cb; 
+    font-size: 16px; 
+    font-weight: bold; 
+    margin-bottom: 20px; 
+    animation: fadeIn 0.5s ease-out; 
+    text-align: left;
+    width: 100%; 
+    max-width: 350px; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); 
+}
+
+@keyframes fadeIn {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+        
+
     </style>
 </head>
 <body>
@@ -127,6 +149,17 @@
 
     <form method="POST">
         {% csrf_token %}
+
+         <!-- Блок для повідомлення про помилку -->
+        {% if messages %}
+            <div class="error-message">
+                <ul>
+                    {% for message in messages %}
+                        <li>{{ message }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
 
         <h3>ОБЕРІТЬ ВАШУ РОЛЬ:</h3>
         <div class="roles">

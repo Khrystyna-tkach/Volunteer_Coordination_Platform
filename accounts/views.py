@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from .models import CustomUser, HelpRequest
 from django.contrib import messages
+from .models import CustomUser
 
 
 # Головна сторінка
@@ -18,6 +19,12 @@ def register_view(request):
         password = request.POST.get('password')
         role = request.POST.get('role')
 
+        # Перевірка на наявність користувача з таким самим email
+        if CustomUser.objects.filter(email=email).exists():
+            messages.error(request, 'Користувач з таким email вже існує.')
+            return render(request, 'accounts/register.html')
+
+        # Якщо користувача з таким email немає, створюємо нового
         user = CustomUser.objects.create_user(
             username=email, 
             email=email, 
@@ -26,10 +33,14 @@ def register_view(request):
             role=role
         )
         login(request, user)
+
         # Редирект залежно від ролі після реєстрації
-        if user.role == 'volunteer': return redirect('volunteer_page')
-        elif user.role == 'admin': return redirect('admin_page')
+        if user.role == 'volunteer':
+            return redirect('volunteer_page')
+        elif user.role == 'admin':
+            return redirect('admin_page')
         return redirect('user_page')
+
     return render(request, 'accounts/register.html')
 
 # Вхід
