@@ -8,7 +8,26 @@
         .login-card { background-color: #8EBAFF; padding: 40px; border-radius: 30px; width: 400px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         h1 { font-size: 32px; letter-spacing: 2px; margin-bottom: 30px; }
         h3 { font-size: 18px; margin: 20px 0; font-weight: bold; }
-        
+          /* Стиль для помилки */
+        .error-message {
+    background-color: #f8d7da; /* Світло-червоний фон */
+    color: #721c24; /* Темно-червоний текст */
+    padding: 8px 12px; /* Менші відступи */
+    border-radius: 8px;
+    border: 0.5px solid #f5c6cb; /* Тонка рамка */
+    font-size: 14px; /* Менший шрифт */
+    font-weight: bold;
+    margin-top: 15px; /* Відступ між синьою кнопкою та повідомленням */
+    text-align: left;
+    width: 100%; /* Ширина 100%, щоб була такою ж, як у синьої кнопки */
+    max-width: 300px; /* Максимальна ширина, щоб вона не була занадто великою */
+    height: auto; /* Автоматична висота */
+}
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
         /* Стилізація ролей */
         .roles { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
         .role-option { background-color: #6C9CEE; padding: 12px; border-radius: 20px; cursor: pointer; transition: 0.3s; border: none; color: white; font-weight: bold; }
@@ -56,6 +75,16 @@
             </div>
 
             <button type="submit" class="btn-submit">Увійти</button>
+             {% if messages %}
+        <div class="error-message">
+            <ul>
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+
         </form>
         <div class="footer-text">
             Ще немає створеного акаунта?<br>

@@ -3,6 +3,8 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib.auth.decorators import login_required
 from django.urls import reverse
 from .models import CustomUser, HelpRequest
+from django.contrib import messages
+
 
 # Головна сторінка
 def home(request):
@@ -35,12 +37,24 @@ def login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
+
+        # Спробуємо аутентифікувати користувача
         user = authenticate(request, username=email, password=password)
-        if user is not None:
-            login(request, user)
-            if user.role == 'volunteer': return redirect('volunteer_page')
-            elif user.role == 'admin': return redirect('admin_page')
-            return redirect('user_page')
+
+        # Якщо користувача не існує або пароль невірний
+        if user is None:
+            messages.error(request, 'Невірний email або пароль.')
+            return render(request, 'accounts/login.html')
+
+        # Успішна аутентифікація, логін і редірект на відповідну сторінку
+        login(request, user)
+
+        if user.role == 'volunteer':
+            return redirect('volunteer_page')
+        elif user.role == 'admin':
+            return redirect('admin_page')
+        return redirect('user_page')
+
     return render(request, 'accounts/login.html')
 
 # Сторінка Користувача (створення та перегляд заявок)
