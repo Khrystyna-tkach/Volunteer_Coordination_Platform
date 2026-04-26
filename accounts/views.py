@@ -7,6 +7,7 @@ from django.contrib import messages
 from .models import CustomUser
 
 
+
 # Головна сторінка
 def home(request):
     return render(request, 'accounts/home.html')
