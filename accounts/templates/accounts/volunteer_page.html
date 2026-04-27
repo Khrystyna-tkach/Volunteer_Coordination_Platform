@@ -1,178 +1,65 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+        {% load static %}
+<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+<link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+
     <meta charset="UTF-8">
     <title>HelpBridge - Кабінет волонтера</title>
     <style>
-        body { background-color: #FFFFFF; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
-        
-        header { 
-            background-color: #66A3FF; 
-            color: white; 
-            padding: 10px 40px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            border-bottom: 1px solid white; 
-        }
-        .logo-text { font-weight: bold; font-size: 20px; letter-spacing: 1px; }
-        .logout-icon { text-decoration: none; color: white; font-size: 28px; }
-
-        .hero-banner { 
-            background-color: #66A3FF; 
-            color: white; 
-            padding: 50px 80px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-        }
-        .hero-text { max-width: 65%; }
-        .hero-text h2 { font-size: 24px; margin-bottom: 15px; text-transform: uppercase; }
-        .hero-text p { font-size: 16px; line-height: 1.4; font-weight: 300; }
-        .hero-logo-circle { background: white; border-radius: 50%; width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; color: #66A3FF; font-weight: bold; }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-
-        .section-card { 
-            background-color: #99C2FF; 
-            border-radius: 30px; 
-            padding: 40px; 
-            margin-bottom: 50px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .section-card h3 { 
-            text-align: center; 
-            color: #0047AB; 
-            margin-bottom: 30px; 
-            font-size: 22px; 
-            font-weight: bold;
-            text-transform: uppercase;
-        }
-
-        .request-item { 
-            background: white; 
-            padding: 25px; 
-            border-radius: 15px; 
-            margin-bottom: 20px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            color: #2D63C8; 
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .request-data {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            margin-bottom: 20px;
-            text-align: center;
-        }
-        .data-column { flex: 1; display: flex; flex-direction: column; gap: 5px; }
-        .data-label { font-size: 12px; color: #0047AB; text-transform: uppercase; }
-        .data-value { font-size: 16px; }
-
-        /* Область дій без роздільної лінії */
-        .action-area { 
-            width: 100%; 
-            display: flex; 
-            justify-content: center; 
-            padding-top: 5px; 
-        }
-        
-        .btn-take { background-color: #2D63C8; color: white; border: none; padding: 12px 50px; border-radius: 10px; cursor: pointer; font-weight: bold; font-size: 14px; transition: 0.3s; }
-        .btn-take:hover { background-color: #1A4BA3; }
-        
-        .btn-update { background-color: #0047AB; color: white; border: none; padding: 10px 30px; border-radius: 10px; cursor: pointer; font-weight: bold; }
-        .status-select { padding: 8px; border-radius: 8px; border: 1px solid #2D63C8; color: #2D63C8; font-weight: bold; margin-right: 10px; background: white; }
-
-        /* Додаткові стилі для розгортання */
-        .request-data {
-            cursor: pointer;
-            transition: background 0.2s;
-            border-radius: 10px;
-            padding: 10px;
-        }
-
-        .request-data:hover {
-            background-color: #f0f7ff;
-        }
-
-        .request-details {
-            width: 100%;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out, padding 0.4s ease, margin 0.4s ease;
-            background: #f9fbff;
-            border-radius: 10px;
-            color: #2D63C8;
-            font-size: 14px;
-            margin-bottom: 0;
-        }
-
-        .request-details.active {
-            max-height: 500px;
-            padding: 15px;
-            margin-bottom: 20px;
-            border: 1px dashed #66A3FF;
-        }
-
-        .details-content p {
-            margin: 5px 0;
-        }
-
-        .details-content strong {
-            color: #0047AB;
-        }
+ 
     </style>
 </head>
-<body>
+<body class="vol">
 
-<header>
-    <a href="{% url 'home' %}" class="logo-text" style="text-decoration: none; color: white;">HELPBRIDGE</a>
-    <a href="{% url 'logout' %}" class="logout-icon" title="Вийти">⎗</a> 
+<header class="header-vol">
+    <a href="{% url 'home' %}" class="logo-text-user" style="text-decoration: none; color: white;"><b>HELPBRIDGE </b></a>
+    <a href="{% url 'logout' %}"  title="Вийти" class="logout-icon-user"><img src="{% static 'accounts/img/exit_header.svg' %}" ></a> 
 </header>
 
-<div class="hero-banner">
-    <div class="hero-text">
-        <h2>ПРИВІТ! ТИ ЗАВІТАВ НА ПЛАТФОРМУ HELPBRIDGE</h2>
-        <p>ДЯКУЄМО, ЩО ТИ СТАВ ЧАСТИНОЮ НАШОЇ ВОЛОНТЕРСЬКОЇ СПІЛЬНОТИ. ТУТ ТИ МОЖЕШ ДОПОМАГАТИ ЛЮДЯМ, ЯКІ ЦЬОГО ПОТРЕБУЮТЬ, І ЗМІНЮВАТИ СВІТ НАВКОЛО СЕБЕ.</p>
+<div class="hero-banner-user">
+    <div class="hero-text-user">
+        <h3 style="padding-bottom: 20px;"><b>ПРИВІТ! ТИ ЗАВІТАВ НА ПЛАТФОРМУ HELPBRIDGE </b></h2>
+        <h4><b>ДЯКУЄМО, ЩО ТИ СТАВ ЧАСТИНОЮ НАШОЇ ВОЛОНТЕРСЬКОЇ СПІЛЬНОТИ. ТУТ ТИ МОЖЕШ ДОПОМАГАТИ ЛЮДЯМ, ЯКІ ЦЬОГО ПОТРЕБУЮТЬ, І ЗМІНЮВАТИ СВІТ НАВКОЛО СЕБЕ. </b></h4>
     </div>
-    <div class="hero-logo-circle">LOGO</div>
+    <div class="hero-logo-circle-vol"  box-shadow: 0 10px 30px rgba(0,0,0,0.2);>
+                <span > <img src="{% static 'accounts/img/logo.png' %}" ></span>
+
+    </div>
 </div>
 
-<div class="container">
-    <section class="section-card">
+<div class="container-vol">
+    <section class="section-card-vol">
         <h3>ДОСТУПНІ ЗАЯВКИ</h3>
         {% for req in available_requests %}
-        <div class="request-item">
-            <div class="request-data" onclick="toggleDetails(this)">
-                <div class="data-column">
-                    <span class="data-label">Назва проблеми</span>
-                    <span class="data-value">{{ req.title }}</span>
+        <div class="request-item-vol">
+            <div class="request-data-vol" onclick="toggleDetails(this)">
+                <div class="data-column-vol">
+                    <span class="data-label-vol">Назва проблеми</span>
+                    <span class="data-value-vol">{{ req.title }}</span>
                 </div>
-                <div class="data-column">
-                    <span class="data-label">Категорія</span>
-                    <span class="data-value">{{ req.category|default:"Допомога" }}</span>
+                <div class="data-column-vol">
+                    <span class="data-label-vol">Категорія</span>
+                    <span class="data-value-vol">{{ req.category|default:"Допомога" }}</span>
                 </div>
-                <div class="data-column">
-                    <span class="data-label">Локація</span>
-                    <span class="data-value">{{ req.location }}</span>
+                <div class="data-column-vol">
+                    <span class="data-label-vol">Локація</span>
+                    <span class="data-value-vol">{{ req.location }}</span>
                 </div>
             </div>
 
-            <div class="request-details">
-                <div class="details-content">
+            <div class="request-details-vol">
+                <div class="details-content-vol">
                     <p><strong>ОПИС:</strong> {{ req.description }}</p>
                     <p><strong>КОНТАКТИ:</strong> {{ req.contact_info }}</p>
                 </div>
             </div>
 
-            <div class="action-area">
+            <div class="action-area-vol">
                 <form method="POST" action="{% url 'take_request' req.id %}">
                     {% csrf_token %}
-                    <button type="submit" class="btn-take">ВЗЯТИ В ОБРОБКУ</button>
+                    <button type="submit" class="btn-take-vol">ВЗЯТИ В ОБРОБКУ</button>
                 </form>
             </div>
         </div>
@@ -181,51 +68,51 @@
         {% endfor %}
     </section>
 
-    <section class="section-card">
+    <section class="section-card-vol" style="margin-bottom: 200px; padding-bottom: 300px;">
         <h3>МОЇ АКТИВНІ ЗАЯВКИ</h3>
         {% for req in my_tasks %}
-        <div class="request-item">
-            <div class="request-data" onclick="toggleDetails(this)">
-                <div class="data-column">
-                    <span class="data-label">НАЗВА ЗАЯВКИ</span>
-                    <span class="data-value">{{ req.title }}</span>
+        <div class="request-item-vol">
+            <div class="request-data-vol" onclick="toggleDetails(this)">
+                <div class="data-column-vol">
+                    <span class="data-label-vol">НАЗВА ЗАЯВКИ</span>
+                    <span class="data-value-vol">{{ req.title }}</span>
                 </div>
-                <div class="data-column">
-                    <span class="data-label">КАТЕГОРІЯ</span>
-                    <span class="data-value">{{ req.category|default:"Допомога" }}</span>
+                <div class="data-column-vol">
+                    <span class="data-label-vol">КАТЕГОРІЯ</span>
+                    <span class="data-value-vol">{{ req.category|default:"Допомога" }}</span>
                 </div>
-                <div class="data-column">
-                    <span class="data-label">ЛОКАЦІЯ</span>
-                    <span class="data-value">{{ req.location }}</span>
+                <div class="data-column-vol">
+                    <span class="data-label-vol">ЛОКАЦІЯ</span>
+                    <span class="data-value-vol">{{ req.location }}</span>
                 </div>
-                <div class="data-column">
-                    <span class="data-label">СТАТУС</span>
-                    <span class="data-value" style="color: #0047AB;">{{ req.get_status_display }}</span>
+                <div class="data-column-vol">
+                    <span class="data-label-vol">СТАТУС</span>
+                    <span class="data-value-vol" style="color: #0047AB;">{{ req.get_status_display }}</span>
                 </div>
             </div>
 
-            <div class="request-details">
-                <div class="details-content">
+            <div class="request-details-vol">
+                <div class="details-content-vol">
                     <p><strong>ПОВНИЙ ОПИС:</strong> {{ req.description }}</p>
                     <p><strong>ЯК ЗВ'ЯЗАТИСЯ:</strong> {{ req.contact_info }}</p>
                 </div>
             </div>
 
-            <div class="action-area">
+            <div class="action-area-vol">
                 <form method="POST" action="{% url 'update_status' req.id %}">
                     {% csrf_token %}
-                    <select name="status" class="status-select">
+                    <select name="status" class="status-select-vol">
                         <option value="in_progress" {% if req.status == 'in_progress' %}selected{% endif %}>В процесі</option>
                         <option value="completed" {% if req.status == 'completed' %}selected{% endif %}>Виконана</option>
                     </select>
-                    <button type="submit" class="btn-update">ОНОВИТИ СТАТУС</button>
+                    <button type="submit" class="btn-update-vol">ОНОВИТИ СТАТУС</button>
                 </form>
             </div>
         </div>
         {% empty %}
-        <p style="text-align: center; color: white;">У вас немає активних завдань.</p>
+        <p style="text-align: center; color: white;">У вас немає активних завдань. </b></p>
         {% endfor %}
-    </section>
+   </section>
 </div>
 
 

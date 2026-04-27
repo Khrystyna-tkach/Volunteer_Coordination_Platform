@@ -1,0 +1,1239 @@
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 60px;
+    background:#60A5FA;
+    color:white;
+    
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    background:#f4f6fa;
+    color:#1e1e1e;
+}
+
+/* ================= HEADER ================= */
+
+
+
+
+
+.icon-profile{
+    text-decoration:none;
+    color:white;
+    font-size:18px;
+}
+
+/* ================= HERO ================= */
+
+.hero{
+    background:#60A5FA;
+    padding:100px 60px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    color:white;
+}
+
+.hero-text{
+    max-width:500px;
+}
+
+.logo{
+              font-weight: bold; 
+                letter-spacing: 1px; 
+                font-size: 35px;
+                letter-spacing: 7%;
+                font-family: 'Poppins', sans-serif;
+                text-decoration: none;
+                color: white;
+}
+.hero-text h3{
+    font-family: 'Poppins', sans-serif;
+    font-size:35px;
+    letter-spacing:7%;
+   line-height:100%;
+    color: #2563EB;
+    font-weight: 1000;
+    
+}
+
+.hero-text h1{
+        font-family: 'Poppins', sans-serif;
+    font-size:28px;
+    font-weight:900;
+    line-height:100%;
+    letter-spacing: 7%;
+    padding-top: 100px;
+    padding-bottom: 100px;
+}
+
+.hero-logo{
+    background:white;
+    padding:40px;
+    border-radius:0px;
+    margin-right: 0px;
+    color:#2D63C8;
+    font-size:28px;
+    font-weight:bold;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    transform: translateX(65px); 
+    
+}
+
+/* ================= ABOUT SECTION ================= */
+
+.about{
+    background-color: #ffff;
+   display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 50px;
+    padding: 40px;
+}
+
+
+
+.about-text h2{
+    font-size:45px;
+    margin-bottom:20px;
+    margin:0;
+    padding-bottom:20px;
+   
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+
+}
+
+.about-text p{
+    line-height:1.6;
+    font-size:17px;
+    margin:0;
+    padding-bottom:20px;
+    font-family: 'Poppins', sans-serif;
+   
+}
+
+
+
+.about-img img{
+     width: 655px;
+     height: 725px;
+   padding-right: 50px;
+    padding-left: 50px;
+    padding-bottom: 0px;
+
+    
+    
+}
+
+.about-text{
+    max-width: 500px;
+}
+/* ================= STATS ================= */
+
+.stats{
+    
+    background:#ffff;
+    
+}
+
+.stats img{
+    align-items: center;
+    margin-left: 150px;
+    width: 80%;
+}
+.stats-grid{
+    display:grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap:30px;
+}
+
+.stat-card{
+    background:white;
+    padding:30px;
+    text-align:center;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.stat-card h3{
+    font-size:28px;
+    color:#2D63C8;
+    margin-bottom:10px;
+}
+
+.stat-card p{
+    font-size:14px;
+}
+
+.stats-bottom{
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap:30px;
+    margin-top:30px;
+}
+
+/* ================= MISSION ================= */
+
+.mission{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:80px 60px;
+    background:white;
+}
+
+.mission-text{
+    max-width:500px;
+}
+
+.mission-text h2{
+    padding-left: 50px;
+    font-size:45px;
+    margin-bottom:20px;
+    margin:0;
+    padding-bottom:20px;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+
+.mission-text ul{
+    list-style:none;
+}
+
+.mission-text li{
+    padding-left: 50px;
+    line-height:1.6;
+    font-size:17px;
+    margin:0;
+    padding-bottom:20px;
+    font-family: 'Poppins', sans-serif;
+}
+
+.mission-img{
+    width:350px;
+    height:250px;
+    background:#d9e6fb;
+    border-radius:10px;
+}
+
+/* ================= BIG BLUE BLOCK ================= */
+
+.big-banner{
+    background:#2D63C8;
+    color:white;
+    padding:60px;
+    font-size:32px;
+    font-weight:bold;
+}
+
+.login-btn {
+    text-decoration: none;
+    color: black;
+   
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.login-btn:hover {
+    background-color: #4e7ee5;
+}
+
+
+
+
+
+
+
+
+.footer {
+    background: linear-gradient(
+    to bottom,
+    white 0%,
+    white 25%,
+    #60A5FA 25%,
+    #60A5FA 100%
+  );
+
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* СИНІЙ БАНЕР */
+.footer-banner {
+    font-family: 'Poppins', sans-serif;
+    background: #2563EB;
+    max-width: 1340px;
+    margin: 0 auto 60px;
+    padding: 50px 30px;
+    height: 386px;
+    font-size: 34px;
+    font-weight: bold;
+    line-height: 1.4;
+    letter-spacing: 2px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+
+    position: relative;
+ 
+}
+
+
+/* КОНТЕНТ */
+.footer-content {
+    padding-top: 70px;
+    font-family: 'Poppins', sans-serif;
+    max-width: 1000px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    padding-bottom: 100px;
+}
+
+.footer-banner p{
+    font-family: 'Poppins', sans-serif;
+    font-size: 70px;
+    padding-left: 40px;
+    margin-top: 35px;
+}
+
+/* КОЛОНКИ */
+.footer-col-left {
+     font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+    max-width: 400px;
+}
+
+.footer-col-right {
+     font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    backdrop-filter: blur(5px);
+}
+
+.footer-col-left h4 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 25px;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    margin-bottom:40px;
+    margin:0;
+    padding-bottom:20px;
+    text-transform: uppercase;
+
+}
+
+.footer-col-left p {
+     font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #ffff;
+}
+.footer-col-right h4 {
+    font-family: 'Poppins', sans-serif;
+    margin-bottom: 15px;
+    letter-spacing: 2px;
+    font-size:25px;
+    margin-bottom:40px;
+    margin:0;
+    padding-bottom:20px;
+    text-transform: uppercase;
+
+}
+
+.footer-col-right p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 20px;
+    line-height: 1.6;
+    color: #ffff;
+}
+
+        /* Базові налаштування */
+            .user { 
+                background-color: #FFFFFF; 
+                font-family: 'Inter', sans-serif; 
+                margin: 0; 
+                padding: 0; 
+            }
+            
+            /* Хедер з білою лінією */
+            .header-user { 
+                background-color: #66A3FF; 
+                color: white; 
+                padding: 10px 40px; 
+                display: flex; 
+                justify-content: space-between; 
+                align-items: center;
+                padding-top: 50px;
+            }
+            .logo-text-user { 
+                font-weight: bold; 
+                letter-spacing: 1px; 
+                font-size: 35px;
+                letter-spacing: 7%;
+                font-family: 'Poppins', sans-serif;
+                padding-left: 50px;
+                padding-top: 50px;
+            }
+            .logout-icon-user { 
+                text-decoration: none; 
+                color: white; 
+                font-size: 28px; 
+                padding-right: 50px;
+            }
+
+            /* банер */
+            .hero-banner-user { 
+                background-color: #66A3FF; 
+                color: white; 
+                padding: 50px 80px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: space-between; 
+            }
+            .hero-banner-user h3 {
+                color: #2563EB;
+                font-size: 35px;
+                font-family: 'Poppins', sans-serif;
+                    text-transform: uppercase;
+            }
+            .hero-banner-user h4{
+               text-transform: uppercase;
+               font-size: 25px;
+               line-height: 100%;
+               letter-spacing: 7%; 
+               font-family: 'Poppins', sans-serif;
+               padding-top: 20px;
+            }
+            .hero-text-user { max-width: 65%; }
+            .hero-text-user h2 { 
+                font-size: 24px; 
+                margin-bottom: 15px; 
+                text-transform: uppercase;
+             }
+            .hero-text-user p { 
+                font-size: 16px; 
+                line-height: 1.4; 
+                font-weight: 300; 
+            }
+            .hero-logo-circle-user { 
+                background: white; 
+                border-radius: 50%; 
+                width: 130px; 
+                height: 130px; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center; 
+                margin: 100px;
+            }
+            /* Тут можна вставити картинку логотипу, якщо вона є */
+            .hero-logo-circle-user img { width: 140% }
+
+            .container-user { 
+                max-width: 1000px; 
+                margin: 0 auto; 
+                padding: 40px 20px; 
+            }
+
+            /* Картки розділів */
+            .section-card-user { 
+                background-color: #99C2FF; 
+                border-radius: 30px; 
+                padding: 40px; 
+                margin-bottom: 50px; 
+                box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            
+            }
+            .section-card-user h3 { 
+                text-align: center; 
+                color: #2563EB; 
+                margin-bottom: 30px; 
+                font-size: 22px; 
+                font-weight: bold;
+            }
+
+            /* Форма створення заявки */
+            .request-form-user { 
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+                gap: 20px; 
+            }
+            .input-group-user { 
+                width: 100%; 
+                display: flex; 
+                flex-direction: column; 
+                align-items: center; 
+            }
+            .input-group-user label { 
+                color: #2563EB; 
+                font-weight: bold; 
+                margin-bottom: 8px; 
+                font-size: 14px; 
+            }
+            .request-form-user input, .request-form-user textarea { 
+                width: 80%; 
+                padding: 15px; 
+                border-radius: 10px; 
+                border: none; 
+                font-size: 14px;
+                background-color: white;
+            }
+            .request-form-user button { 
+                background-color: #2D63C8; 
+                color: white; 
+                border: none; 
+                padding: 12px 30px; 
+                border-radius: 10px; 
+                font-weight: bold; 
+                cursor: pointer; 
+                margin-top: 10px;
+            }
+
+            /* Список заявок (білі блоки) */
+            .request-list-user { width: 90%; margin: 0 auto; }
+            .request-header-user { 
+                display: flex; 
+                justify-content: space-between; 
+                padding: 0 30px 10px; 
+                font-weight: bold; 
+                color: #0047AB;
+                font-size: 14px;
+            }
+            .request-item-user { 
+                background: white; 
+                padding: 20px 30px; 
+                border-radius: 15px; 
+                margin-bottom: 15px; 
+                display: flex; 
+                justify-content: space-between; 
+                align-items: center; 
+                color: #2D63C8; 
+                font-weight: bold;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            }
+            .request-item-user span { flex: 1; text-align: center; }
+            .request-item-user span:first-child { text-align: left; }
+            .request-item-user span:last-child { text-align: right; }
+
+            /* Контейнер для елемента заявки, щоб опис був під ним */
+            .request-wrapper-user {
+                margin-bottom: 15px;
+            }
+
+            .request-item-user {
+                margin-bottom: 0 !important; /* Прибираємо відступ знизу, бо тепер є wrapper */
+                cursor: pointer;
+                transition: background 0.3s;
+            }
+
+            .request-item-user:hover {
+                background: #f0f5ff;
+            }
+
+            /* Стиль висувного опису */
+            .request-details-user {
+                background: rgba(255, 255, 255, 0.8);
+                margin: 0 15px;
+                padding: 0 30px;
+                max-height: 0; /* Спочатку сховано */
+                overflow: hidden;
+                border-radius: 0 0 15px 15px;
+                transition: max-height 0.4s ease-out, padding 0.4s ease;
+                color: #2D63C8;
+                font-size: 14px;
+            }
+
+            /* Клас, який додаватиме JS при натисканні */
+            .request-details-user.active {
+                max-height: 500px; /* Достатня висота для тексту */
+                padding: 20px 30px;
+                border-top: 1px solid #99C2FF;
+            }
+
+            .details-content-user {
+                padding-bottom: 10px;
+            }
+
+            .details-content-user strong {
+                color: #0047AB;
+            }
+ .user { 
+    background-color: #FFFFFF; 
+    font-family: 'Inter', sans-serif; 
+    margin: 0; 
+    padding: 0; }
+        
+        .header-user { 
+            background-color: #66A3FF; 
+            color: white; 
+            padding: 10px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .logo-text-admin { 
+            font-weight: bold; 
+            font-size: 20px; 
+            letter-spacing: 1px; 
+        }
+        .logout-icon-admin { 
+            text-decoration: none; 
+            color: white; 
+            font-size: 28px; 
+        }
+
+        .hero-banner-admin { 
+            background-color: #66A3FF; 
+            color: white; 
+            padding: 50px 80px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        }
+        .hero-text-admin { 
+            max-width: 70%; 
+        }
+        .hero-text-admin h2 { 
+            font-size: 24px;
+             margin-bottom: 15px; 
+             text-transform: uppercase; 
+            }
+        .hero-text-admin p { 
+            font-size: 16px; 
+            line-height: 1.4; 
+            font-weight: 300; 
+            text-transform: uppercase;
+         }
+        .hero-logo-circle-admin { 
+            background: white; 
+            border-radius: 50%; 
+            width: 130px; 
+            height: 130px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 100px;
+        }
+        /* Тут можна вставити картинку логотипу, якщо вона є */
+        .hero-logo-circle-admin img { 
+            width: 140% 
+        }
+        .container-admin { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+
+        .section-card-admin { 
+            background-color: #99C2FF; 
+            border-radius: 30px; 
+            padding: 40px; 
+            margin-bottom: 50px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+          .section-card-admin h3 { 
+            text-align: center; 
+            color: #2563EB; 
+            margin-bottom: 30px; 
+            font-size: 22px; 
+            font-weight: bold;
+        }
+
+        .item-card-admin { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 20px; 
+            margin-bottom: 25px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: #2D63C8; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .item-data-row-admin {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 25px;
+            text-align: center;
+            flex-wrap: wrap;
+        }
+        .data-col-admin { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 8px; 
+            min-width: 120px; 
+        }
+        .col-label-admin { 
+            font-size: 16px; 
+            color: #0047AB; 
+            text-transform: uppercase; 
+            font-weight: 800; 
+        }
+        .col-value-admin { 
+            font-size: 14px; 
+            font-weight: 500; 
+            word-break: break-word; 
+        }
+
+        .item-actions-vertical-admin { 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            gap: 10px; 
+            width: 100%; 
+            max-width: 250px; 
+        }
+        
+        .btn-action-admin { 
+            width: 100%; 
+            border: none; 
+            padding: 12px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 13px; 
+            color: white; 
+            text-transform: uppercase;
+            transition: 0.3s; 
+        }
+        .btn-red-admin { 
+            background-color: #003366; 
+        } 
+        .btn-blue-admin { 
+            background-color: #2D63C8; 
+        } 
+        .btn-action-admin:hover { 
+            opacity: 0.9; transform: 
+            translateY(-1px); 
+        }
+
+        .btn-action-admin { 
+            width: 100%; 
+            border: none; 
+            padding: 12px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 13px; 
+            color: white; 
+            text-transform: uppercase;
+            transition: 0.3s; 
+            display: inline-block;       
+            box-sizing: border-box;     
+            text-decoration: none;      
+            text-align: center;         
+            text-align: center;
+            text-align-last: center;
+        }
+
+        select.btn-action-admin {
+            padding-left: 10px;
+        }
+
+       .vol { 
+        background-color: #FFFFFF; 
+        font-family: 'Inter', sans-serif; 
+        margin: 0; 
+        padding: 0; 
+    }
+        
+        .header-vol { 
+            background-color: #66A3FF; 
+            color: white; 
+            padding: 10px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .logo-text-vol { 
+            font-weight: bold; 
+            font-size: 20px; 
+            letter-spacing: 1px; 
+        }
+        .logout-icon-vol { 
+            text-decoration: none; 
+            color: white; 
+            font-size: 28px; 
+        }
+
+        .hero-banner-vol { 
+            background-color: #66A3FF; 
+            color: white; 
+            padding: 50px 80px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+        }
+        .hero-text-vol { 
+            max-width: 65%; 
+        }
+        .hero-text-vol h2 { 
+            font-size: 24px; 
+            margin-bottom: 15px; 
+            text-transform: uppercase; 
+        }
+        .hero-text-vol p { 
+            font-size: 16px; 
+            line-height: 1.4; 
+            font-weight: 300; 
+        }
+
+        .container-vol { 
+            max-width: 1000px; 
+            margin: 0 auto; 
+            padding: 40px 20px; 
+        }
+
+        .section-card-vol { 
+            background-color: #99C2FF; 
+            border-radius: 30px; 
+            padding: 40px; 
+            margin-bottom: 50px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .section-card-vol h3 { 
+            text-align: center; 
+            color: #2563EB; 
+            margin-bottom: 30px; 
+            font-size: 22px; 
+            font-weight: bold;
+        }
+        .request-item-vol { 
+            background: white; 
+            padding: 25px; 
+            border-radius: 15px; 
+            margin-bottom: 20px; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            color: #2D63C8; 
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+
+        .request-data-vol {
+            display: flex;
+            justify-content: space-around;
+            width: 100%;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .data-column-vol { 
+            flex: 1; 
+            display: flex; 
+            flex-direction: column; 
+            gap: 5px; 
+        }
+        .data-label-vol { 
+            font-size: 12px; 
+            color: #0047AB; 
+            text-transform: uppercase; 
+        }
+        .data-value-vol { 
+            font-size: 16px; 
+        }
+
+        /* Область дій без роздільної лінії */
+        .action-area-vol { 
+            width: 100%; 
+            display: flex; 
+            justify-content: center; 
+            padding-top: 5px; 
+        }
+        
+        .btn-take-vol { 
+            background-color: #2D63C8; 
+            color: white; 
+            border: none; 
+            padding: 12px 50px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            font-size: 14px; 
+            transition: 0.3s; 
+        }
+        .btn-take-vol:hover { 
+            background-color: #1A4BA3; 
+        }
+        
+        .btn-update-vol { 
+            background-color: #0047AB; 
+            color: white; 
+            border: none; 
+            padding: 10px 30px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: bold; 
+        }
+        .status-select-vol { 
+            padding: 8px; 
+            border-radius: 8px; 
+            border: 1px solid #2D63C8; 
+            color: #2D63C8; 
+            font-weight: bold; 
+            margin-right: 10px; 
+            background: white; 
+        }
+
+        /* Додаткові стилі для розгортання */
+        .request-data-vol {
+            cursor: pointer;
+            transition: background 0.2s;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .request-data-vol:hover {
+            background-color: #f0f7ff;
+        }
+
+        .request-details-vol {
+            width: 100%;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease-out, padding 0.4s ease, margin 0.4s ease;
+            background: #f9fbff;
+            border-radius: 10px;
+            color: #2D63C8;
+            font-size: 14px;
+            margin-bottom: 0;
+        }
+
+        .request-details-vol.active {
+            max-height: 500px;
+            padding: 15px;
+            margin-bottom: 20px;
+            border: 1px dashed #66A3FF;
+        }
+
+        .details-content-vol p {
+            margin: 5px 0;
+        }
+
+        .details-content-vol strong {
+            color: #0047AB;
+        }
+
+        .hero-logo-circle-vol { 
+            background: white; 
+            border-radius: 50%; 
+            width: 130px; 
+            height: 130px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            margin: 100px;
+        }
+        /* Тут можна вставити картинку логотипу, якщо вона є */
+        .hero-logo-circle-vol img { 
+            width: 140% 
+        }
+
+       .log { 
+        background-color: #60A5FA; 
+        display: flex; 
+        justify-content: center; 
+        align-items: center; 
+        min-height: 100vh; 
+        margin: 0; 
+        color: white; 
+    }
+        .login-card-log { 
+            background-color: #8EBAFF; 
+            padding: 40px; 
+            border-radius: 30px; 
+            width: 400px; 
+            text-align: center; 
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+       .login-card-log h1{
+        padding-bottom: 20px;
+       }
+
+       .login-card-log h3{
+         font-family: 'Poppins',sans-serif; 
+         padding-bottom: 20px
+       }
+        
+      
+        .input-group-log input[type="radio"] { 
+            display: none; 
+        }
+        .input-group-log input[type="radio"]:checked + label { 
+            background-color: #2D63C8; 
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.2); 
+        }
+
+        /* Поля вводу */
+        .input-group-log { 
+            text-align: left; 
+            margin-bottom: 15px; 
+        }
+        .input-group-log label { 
+            padding-bottom: 5px;
+            font-family: 'Gilroy-Medium',sans-serif; 
+            display: block; 
+            margin-bottom: 5px; 
+            font-size: 14px; }
+
+        .input-group-log input[type="email"]{ 
+            width: 100%; 
+            padding: 12px; 
+            border-radius: 8px; 
+            border: none; 
+            box-sizing: border-box; 
+        }
+        .input-group-log input[type="password"] { 
+            width: 100%; 
+            padding: 12px; 
+            border-radius: 8px; 
+            border: none; 
+            box-sizing: border-box; 
+        }
+        
+        .btn-submit-log { 
+            background-color: #003465; 
+            color: white; 
+            border: none; 
+            width: 100%; 
+            padding: 15px; 
+            border-radius: 10px; 
+            font-size: 18px; 
+            font-weight: bold; 
+            cursor: pointer; 
+            margin-top: 20px; 
+        }
+        .btn-submit-log:hover { 
+            background-color: #002244; 
+        }
+        
+        .footer-text-log a { 
+            color: white; 
+            text-decoration: underline; 
+            font-size: 13px; 
+        }
+        .footer-text-log { 
+            margin-top: 20px; 
+            font-size: 13px; 
+        }
+    
+
+        .reg {
+            background-color: #60A5FA;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            color: white;
+             font-family: 'Poppins',sans-serif; 
+        }
+
+        .register-card-reg {
+            background-color: #8EBAFF;
+            padding: 40px;
+            border-radius: 30px;
+            width: 400px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        .register-card-reg h1 {
+            font-size: 32px;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .register-card-reg h3 {
+            font-size: 18px;
+            margin: 20px 0;
+            font-weight: bold;
+        }
+
+        /* Ролі */
+        .roles-reg {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .role-option-reg {
+            background-color: #6C9CEE;
+            padding: 12px;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: 0.3s;
+            border: none;
+            color: white;
+            font-weight: bold;
+        }
+
+        .role-option-reg:hover {
+            background-color: #4A83E8;
+        }
+
+        .roles-reg input[type="radio"] {
+            display: none;
+        }
+
+        .roles-reg input[type="radio"]:checked + label {
+            background-color: #2D63C8;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.2);
+        }
+
+        /* Поля */
+        .input-group-reg {
+            text-align: left;
+            margin-bottom: 15px;
+        }
+
+        .input-group-reg label {
+             padding-bottom: 5px;
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+        }
+
+        .input-group-reg input[type="text"],
+        .input-group-reg input[type="email"],
+        .input-group-reg input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            box-sizing: border-box;
+        }
+
+        /* Кнопка */
+        .btn-submit-reg {
+            background-color: #003465;
+            color: white;
+            border: none;
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .btn-submit-reg:hover {
+            background-color: #002244;
+        }
+
+        .footer-text-reg a {
+            color: white;
+            text-decoration: underline;
+            font-size: 13px;
+        }
+
+        .footer-text-reg {
+            margin-top: 20px;
+            font-size: 13px;
+        }       
+
+ .edit { 
+    background-color: #FFFFFF; 
+    font-family: 'Inter', sans-serif; 
+    margin: 0; 
+    padding: 0; 
+}
+        .header-edit { 
+            background-color: #66A3FF; 
+            color: white; 
+            padding: 10px 40px; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+            border-bottom: 1px solid white; 
+        }
+        .logo-text-edit 
+        {
+        font-weight: bold; 
+        font-size: 20px; 
+        letter-spacing: 1px; }
+
+        .logout-icon-edit { 
+            text-decoration: none; 
+            color: white; 
+            font-size: 28px; 
+        }
+        .container-edit  { 
+            max-width: 800px; 
+            margin: 50px auto; 
+            padding: 20px; 
+        }
+        .section-card-edit  { 
+            background-color: #99C2FF; 
+            border-radius: 30px; 
+            padding: 40px; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+        }
+         .section-card-edit h3 { 
+            text-align: center; 
+            color: #0047AB; 
+            margin-bottom: 30px; 
+        }
+        
+        .input-group-edit  { 
+            margin-bottom: 20px; 
+            display: flex; 
+            flex-direction: column; 
+        }
+        .input-group-edit label { 
+            font-weight: bold; 
+            color: #0047AB; 
+            margin-bottom: 8px; 
+            text-transform: uppercase; 
+            font-size: 14px; }
+        .input-group-edit input, .input-group-edit textarea { 
+            padding: 12px; 
+            border-radius: 10px; 
+            border: 1px solid white; 
+            font-family: inherit; 
+        }
+        
+        .btn-group-edit  { 
+            display: flex; 
+            gap: 15px; 
+            margin-top: 20px; 
+        }
+        .btn-save-edit  { 
+            background-color: #2D63C8; 
+            color: white; border: none; 
+            padding: 12px 30px; 
+            border-radius: 10px; 
+            cursor: pointer; 
+            font-weight: bold; 
+            flex: 2; 
+        }
+        .btn-cancel-edit  { 
+            background-color: #003366; 
+            color: white; 
+            text-decoration: none; 
+            padding: 12px 30px; 
+            border-radius: 10px; 
+            text-align: center; 
+            font-weight: bold; 
+            flex: 1; 
+        }
+        
