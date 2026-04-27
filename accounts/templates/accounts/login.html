@@ -1,94 +1,45 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
     <meta charset="UTF-8">
     <title>Вхід - HelpBridge</title>
     <style>
-        body { background-color: #66A3FF; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; color: white; }
-        .login-card { background-color: #8EBAFF; padding: 40px; border-radius: 30px; width: 400px; text-align: center; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
-        h1 { font-size: 32px; letter-spacing: 2px; margin-bottom: 30px; }
-        h3 { font-size: 18px; margin: 20px 0; font-weight: bold; }
-          /* Стиль для помилки */
-        .error-message {
-    background-color: #f8d7da; /* Світло-червоний фон */
-    color: #721c24; /* Темно-червоний текст */
-    padding: 8px 12px; /* Менші відступи */
-    border-radius: 8px;
-    border: 0.5px solid #f5c6cb; /* Тонка рамка */
-    font-size: 14px; /* Менший шрифт */
-    font-weight: bold;
-    margin-top: 15px; /* Відступ між синьою кнопкою та повідомленням */
-    text-align: left;
-    width: 100%; /* Ширина 100%, щоб була такою ж, як у синьої кнопки */
-    max-width: 300px; /* Максимальна ширина, щоб вона не була занадто великою */
-    height: auto; /* Автоматична висота */
-}
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        /* Стилізація ролей */
-        .roles { display: flex; flex-direction: column; gap: 10px; margin-bottom: 30px; }
-        .role-option { background-color: #6C9CEE; padding: 12px; border-radius: 20px; cursor: pointer; transition: 0.3s; border: none; color: white; font-weight: bold; }
-        .role-option:hover { background-color: #4A83E8; }
-        input[type="radio"] { display: none; }
-        input[type="radio"]:checked + label { background-color: #2D63C8; box-shadow: inset 0 0 5px rgba(0,0,0,0.2); }
-
-        /* Поля вводу */
-        .input-group { text-align: left; margin-bottom: 15px; }
-        .input-group label { display: block; margin-bottom: 5px; font-size: 14px; }
-        input[type="email"], input[type="password"] { width: 100%; padding: 12px; border-radius: 8px; border: none; box-sizing: border-box; }
-        
-        .btn-submit { background-color: #003366; color: white; border: none; width: 100%; padding: 15px; border-radius: 10px; font-size: 18px; font-weight: bold; cursor: pointer; margin-top: 20px; }
-        .btn-submit:hover { background-color: #002244; }
-        
-        a { color: white; text-decoration: underline; font-size: 13px; }
-        .footer-text { margin-top: 20px; font-size: 13px; }
-    </style>
+ </style>
 </head>
-<body>
-    <div class="login-card">
-        <h1>HELPBRIDGE</h1>
+<body class="log">
+    <div class="login-card-log">
+        <h1><b>HELPBRIDGE</b></h1>
         <form method="POST">
             {% csrf_token %}
-            <h3>ОБЕРІТЬ ВАШУ РОЛЬ:</h3>
-            <div class="roles">
-                <input type="radio" id="role_user" name="role" value="user" required checked>
-                <label for="role_user" class="role-option">КОРИСТУВАЧ</label>
+            
 
-                <input type="radio" id="role_volunteer" name="role" value="volunteer">
-                <label for="role_volunteer" class="role-option">ВОЛОНТЕР</label>
-
-                <input type="radio" id="role_admin" name="role" value="admin">
-                <label for="role_admin" class="role-option">АДМІНІСТРАТОР</label>
-            </div>
-
-            <h3 style="text-align: left;">Вхід</h3>
-            <div class="input-group">
+            <h3 style="text-align: left;"><b>Вхід</h3>
+            <div class="input-group-log">
                 <label>Email</label>
                 <input type="email" name="email" placeholder="username@gmail.com" required>
             </div>
-            <div class="input-group">
+            <div class="input-group-log">
                 <label>Password</label>
                 <input type="password" name="password" placeholder="Password" required>
             </div>
 
-            <button type="submit" class="btn-submit">Увійти</button>
-             {% if messages %}
-        <div class="error-message">
-            <ul>
-                {% for message in messages %}
-                    <li>{{ message }}</li>
-                {% endfor %}
-            </ul>
-        </div>
-    {% endif %}
-
+            <button type="submit" class="btn-submit-log"><b>Увійти</b></button>
+            {% if messages %}
+            <div class="error-message">
+                <div class="error-message">
+              {% for message in messages %}
+              {{ message }}
+              {% endfor %}
+</div>
+            </div>
+        {% endif %}
         </form>
-        <div class="footer-text">
-            Ще немає створеного акаунта?<br>
-            <a href="{% url 'register' %}">Зареєструватись</a>
+        <div class="footer-text-log">
+            <b>Ще немає створеного акаунта?<br>
+            <a href="{% url 'register' %}" style="color: #003465;  text-decoration: none;">Зареєструватись</a>
         </div>
     </div>
 </body>

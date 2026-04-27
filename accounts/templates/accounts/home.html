@@ -1,227 +1,33 @@
+
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+
 <meta charset="UTF-8">
 <title>HelpBridge - Головна</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+{% load static %}
+<link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
 
-<style>
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family: Arial, Helvetica, sans-serif;
-}
-
-body{
-    background:#f4f6fa;
-    color:#1e1e1e;
-}
-
-/* ================= HEADER ================= */
-
-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:20px 60px;
-    background:#5e95dc;
-    color:white;
-}
-
-.logo{
-    font-weight:bold;
-    font-size:20px;
-    letter-spacing:2px;
-}
-
-.icon-profile{
-    text-decoration:none;
-    color:white;
-    font-size:18px;
-}
-
-/* ================= HERO ================= */
-
-.hero{
-    background:#5e95dc;
-    padding:100px 60px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    color:white;
-}
-
-.hero-text{
-    max-width:500px;
-}
-
-.hero-text h2{
-    font-size:16px;
-    letter-spacing:2px;
-    margin-bottom:25px;
-}
-
-.hero-text h1{
-    font-size:32px;
-    font-weight:bold;
-    line-height:1.4;
-}
-
-.hero-logo{
-    background:white;
-    padding:40px;
-    border-radius:6px;
-    color:#2D63C8;
-    font-size:28px;
-    font-weight:bold;
-}
-
-/* ================= ABOUT SECTION ================= */
-
-.about{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:80px 60px;
-    background:white;
-}
-
-.about-text{
-    max-width:500px;
-}
-
-.about-text h2{
-    font-size:26px;
-    margin-bottom:20px;
-}
-
-.about-text p{
-    margin-bottom:10px;
-    line-height:1.6;
-    font-size:14px;
-}
-
-.about-img{
-    width:350px;
-    height:250px;
-    background:#d9e6fb;
-    border-radius:10px;
-}
-
-/* ================= STATS ================= */
-
-.stats{
-    padding:60px;
-    background:#f4f6fa;
-}
-
-.stats-grid{
-    display:grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap:30px;
-}
-
-.stat-card{
-    background:white;
-    padding:30px;
-    text-align:center;
-    border-radius:12px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.08);
-}
-
-.stat-card h3{
-    font-size:28px;
-    color:#2D63C8;
-    margin-bottom:10px;
-}
-
-.stat-card p{
-    font-size:14px;
-}
-
-.stats-bottom{
-    display:grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap:30px;
-    margin-top:30px;
-}
-
-/* ================= MISSION ================= */
-
-.mission{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:80px 60px;
-    background:white;
-}
-
-.mission-text{
-    max-width:500px;
-}
-
-.mission-text h2{
-    margin-bottom:20px;
-}
-
-.mission-text ul{
-    list-style:none;
-}
-
-.mission-text li{
-    margin-bottom:12px;
-    font-size:14px;
-}
-
-.mission-img{
-    width:350px;
-    height:250px;
-    background:#d9e6fb;
-    border-radius:10px;
-}
-
-/* ================= BIG BLUE BLOCK ================= */
-
-.big-banner{
-    background:#2D63C8;
-    color:white;
-    padding:60px;
-    font-size:32px;
-    font-weight:bold;
-}
-
-.login-btn {
-    text-decoration: none;
-    color: white;
-    background-color: #2D63C8;
-    padding: 10px 20px;
-    border-radius: 20px;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.login-btn:hover {
-    background-color: #1b4ea3;
-}
-</style>
 </head>
 
 <body>
 
 <header>
-    <a href="{% url 'home' %}" style="text-decoration: none; color: white;" class="logo">HELPBRIDGE</a>
+    <a href="{% url 'home' %}"  class="logo"><b>HELPBRIDGE</b></a>
 
     <div style="display: flex; align-items: center; gap: 20px;">
         {% if user.is_authenticated %}
             <a href="{% if user.role == 'admin' %}{% url 'admin_page' %}{% elif user.role == 'volunteer' %}{% url 'volunteer_page' %}{% else %}{% url 'user_page' %}{% endif %}" 
-               class="login-btn">
-               Мій кабінет
+               class="login-btn" title="Мій кабінет">
+               <img src="{% static 'accounts/img/login.svg' %}" >
             </a>
             
-            <a href="{% url 'logout' %}" class="logout-icon" title="Вийти" style="text-decoration: none; color: white; font-size: 24px;">⎗</a>
+            <a href="{% url 'logout' %}"  title="Вийти" class="login-btn"><img src="{% static 'accounts/img/exit_header.svg' %}" ></a>
         {% else %}
-            <a href="{% url 'login' %}" class="login-btn">Увійти</a>
+            <a href="{% url 'login' %}" class="login-btn"><img src="{% static 'accounts/img/login.svg' %}" >
+</a>
         {% endif %}
     </div>
 </header>
@@ -229,75 +35,57 @@ header{
 <!-- HERO -->
 <section class="hero">
     <div class="hero-text">
-        <h2>WELCOME TO HELPBRIDGE</h2>
-        <h1>МАЛЕНЬКА ДІЯ КОЖНОГО —<br> ВЕЛИКА ЗМІНА ДЛЯ ВСІХ</h1>
+        <h3><b>WELCOME TO HELPBRIDGE</h3>
+        <h1>МАЛЕНЬКА ДІЯ КОЖНОГО — <br>ВЕЛИКА ЗМІНА ДЛЯ ВСІХ</b></h1>
     </div>
     <div class="hero-logo">
-        HelpBridge
+       <img src="{% static 'accounts/img/logo_header.svg' %}" class="logo" >
+ 
     </div>
 </section>
 
 <!-- ABOUT -->
 <section class="about">
-    <div class="about-img"></div>
+    <div class="about-img">
+    
+
+<img src="{% static 'accounts/img/main_w_grand.svg' %}" >
+    </div>
 
     <div class="about-text">
-        <h2>РАЗОМ МИ МОЖЕМО БІЛЬШЕ</h2>
+        <h2><b>РАЗОМ МИ МОЖЕМО БІЛЬШЕ</b></h2>
         <p>Ми — команда розробників та дизайнерів, яка працює над створенням сучасної цифрової платформи для координації волонтерської допомоги.</p>
         <p>Наша мета — зробити процес допомоги швидким, зручним і прозорим.</p>
+        <p>Ми створюємо систему, яка дозволяє користувачам залишати заявки, волонтерам — швидко їх виконувати, а адміністраторам — контролювати весь процес.</p>
         <p>Ми віримо, що технології можуть змінити світ на краще.</p>
     </div>
 </section>
 
 <!-- STATS -->
 <section class="stats">
-    <div class="stats-grid">
-        <div class="stat-card">
-            <h3>80%</h3>
-            <p>Швидше отримують допомогу через цифрові платформи</p>
-        </div>
+   <img src="{% static 'accounts/img/stat.png' %}" >
 
-        <div class="stat-card">
-            <h3>2–3x</h3>
-            <p>Середній час реакції волонтера швидший</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>1 платформа</h3>
-            <p>Сотні оброблених заявок щодня</p>
-        </div>
-    </div>
-
-    <div class="stats-bottom">
-        <div class="stat-card">
-            <h3>25–30%</h3>
-            <p>Зростання волонтерських ініціатив щороку</p>
-        </div>
-
-        <div class="stat-card">
-            <h3>9 із 10</h3>
-            <p>Користувачів відзначають зручність онлайн-координації</p>
-        </div>
-    </div>
 </section>
 
 <!-- MISSION -->
 <section class="mission">
     <div class="mission-text">
-        <h2>НАША МІСІЯ</h2>
+        <h2><b>НАША МІСІЯ</b></h2>
         <ul>
-            <li>✔ Об’єднати людей, які потребують допомоги, з тими, хто готовий її надати</li>
-            <li>✔ Скоротити час реагування на запити</li>
-            <li>✔ Зробити волонтерство більш організованим</li>
-            <li>✔ Підвищити довіру та прозорість</li>
+            <li>🔷 Об’єднати людей, які потребують допомоги, з тими, хто готовий її надати</li>
+            <li>🔷 Скоротити час реагування на запити</li>
+            <li>🔷 Зробити волонтерство більш організованим</li>
+            <li>🔷 Підвищити довіру та прозорість</li>
         </ul>
     </div>
-    <div class="mission-img"></div>
+    <div class="about-img">
+    
+
+<img src="{% static 'accounts/img/main_w_woman.svg' %}" >
+    </div>
 </section>
 
-<div class="big-banner">
-    ДОПОМАГАЮЧИ ІНШИМ, МИ ЗМІНЮЄМО СВІТ
-</div>
+
 
 {% include 'includes/footer.html' %}
 

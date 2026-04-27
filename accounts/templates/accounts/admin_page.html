@@ -1,189 +1,81 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+      {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
     <meta charset="UTF-8">
     <title>HelpBridge - Адмін Панель</title>
     <style>
-        body { background-color: #FFFFFF; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
-        
-        header { 
-            background-color: #66A3FF; 
-            color: white; 
-            padding: 10px 40px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            border-bottom: 1px solid white; 
-        }
-        .logo-text { font-weight: bold; font-size: 20px; letter-spacing: 1px; }
-        .logout-icon { text-decoration: none; color: white; font-size: 28px; }
-
-        .hero-banner { 
-            background-color: #66A3FF; 
-            color: white; 
-            padding: 50px 80px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-        }
-        .hero-text { max-width: 70%; }
-        .hero-text h2 { font-size: 24px; margin-bottom: 15px; text-transform: uppercase; }
-        .hero-text p { font-size: 16px; line-height: 1.4; font-weight: 300; text-transform: uppercase; }
-        .hero-logo-circle { background: white; border-radius: 50%; width: 130px; height: 130px; display: flex; align-items: center; justify-content: center; color: #66A3FF; font-weight: bold; }
-
-        .container { max-width: 1200px; margin: 0 auto; padding: 40px 20px; }
-
-        .section-card { 
-            background-color: #99C2FF; 
-            border-radius: 30px; 
-            padding: 40px; 
-            margin-bottom: 50px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .section-card h3 { 
-            text-align: center; 
-            color: #0047AB; 
-            margin-bottom: 30px; 
-            font-size: 24px; 
-            font-weight: bold;
-        }
-
-        .item-card { 
-            background: white; 
-            padding: 30px; 
-            border-radius: 20px; 
-            margin-bottom: 25px; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            color: #2D63C8; 
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-
-        .item-data-row {
-            display: flex;
-            justify-content: space-around;
-            width: 100%;
-            margin-bottom: 25px;
-            text-align: center;
-            flex-wrap: wrap;
-        }
-        .data-col { flex: 1; display: flex; flex-direction: column; gap: 8px; min-width: 120px; }
-        .col-label { font-size: 16px; color: #0047AB; text-transform: uppercase; font-weight: 800; }
-        .col-value { font-size: 14px; font-weight: 500; word-break: break-word; }
-
-        .item-actions-vertical { 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            gap: 10px; 
-            width: 100%; 
-            max-width: 250px; 
-        }
-        
-        .btn-action { 
-            width: 100%; 
-            border: none; 
-            padding: 12px; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 13px; 
-            color: white; 
-            text-transform: uppercase;
-            transition: 0.3s; 
-        }
-        .btn-red { background-color: #003366; } 
-        .btn-blue { background-color: #2D63C8; } 
-        .btn-action:hover { opacity: 0.9; transform: translateY(-1px); }
-
-        .btn-action { 
-            width: 100%; 
-            border: none; 
-            padding: 12px; 
-            border-radius: 10px; 
-            cursor: pointer; 
-            font-weight: bold; 
-            font-size: 13px; 
-            color: white; 
-            text-transform: uppercase;
-            transition: 0.3s; 
-            display: inline-block;       
-            box-sizing: border-box;     
-            text-decoration: none;      
-            text-align: center;         
-            text-align: center;
-            text-align-last: center;
-        }
-
-        select.btn-action {
-            padding-left: 10px;
-        }
+       
     </style>
 </head>
-<body>
+<body class="admin">
 
-<header>
-    <a href="{% url 'home' %}" class="logo-text" style="text-decoration: none; color: white;">HELPBRIDGE</a>
-    <a href="{% url 'logout' %}" class="logout-icon" title="Вийти">⎗</a> 
+<header class="header-user">
+    <a href="{% url 'home' %}" class="logo-text-user" style="text-decoration: none; color: white;"><b>HELPBRIDGE</a>
+    <a href="{% url 'logout' %}"  title="Вийти" class="logout-icon-user"><img src="{% static 'accounts/img/exit_header.svg' %}" ></a> 
 </header>
 
-<div class="hero-banner">
-    <div class="hero-text">
-        <h2>ПРИВІТ! ТИ ЗАВІТАВ НА ПЛАТФОРМУ HELPBRIDGE</h2>
-        <p>ЦЕ ПАНЕЛЬ КЕРУВАННЯ ПЛАТФОРМОЮ. ТУТ ТИ КОНТРОЛЮЄШ РОБОТУ СИСТЕМИ, СЛІДКУЄШ ЗА ЗАЯВКАМИ ТА ПІДТРИМУЄШ ПОРЯДОК У СПІЛЬНОТІ.</p>
+<div class="hero-banner-user">
+    <div class="hero-text-user">
+        <h3 style="padding-bottom: 20px;"><b>ПРИВІТ! ТИ ЗАВІТАВ НА ПЛАТФОРМУ HELPBRIDGE</b></h2>
+        <h4><b>ЦЕ ПАНЕЛЬ КЕРУВАННЯ ПЛАТФОРМОЮ. ТУТ ТИ КОНТРОЛЮЄШ РОБОТУ СИСТЕМИ, СЛІДКУЄШ ЗА ЗАЯВКАМИ ТА ПІДТРИМУЄШ ПОРЯДОК У СПІЛЬНОТІ.</b></h4>
     </div>
-    <div class="hero-logo-circle">LOGO</div>
+    <div class="hero-logo-circle-user" style=" box-shadow: 0 10px 30px rgba(0,0,0,0.2);">
+                        <span > <img src="{% static 'accounts/img/logo.png' %}" ></span>
+
+    </div>
 </div>
 
-<div class="container">
-    <section class="section-card">
+<div class="container-admin">
+    <section class="section-card-admin">
         <h3>ВСІ ЗАЯВКИ</h3>
         {% for req in all_requests %}
-        <div class="item-card" id="req-{{ req.id }}">
-            <div class="item-data-row">
-                <div class="data-col">
-                    <span class="col-label">НАЗВА ЗАЯВКИ</span>
-                    <span class="col-value">{{ req.title }}</span>
+        <div class="item-card-admin" id="req-{{ req.id }}">
+            <div class="item-data-row-admin">
+                <div class="data-col-admin">
+                    <span class="col-label-admin">НАЗВА ЗАЯВКИ</span>
+                    <span class="col-value-admin">{{ req.title }}</span>
                 </div>
-                <div class="data-col">
-                    <span class="col-label">КАТЕГОРІЯ</span>
-                    <span class="col-value">{{ req.category|default:"Допомога" }}</span>
+                <div class="data-col-admin">
+                    <span class="col-label-admin">КАТЕГОРІЯ</span>
+                    <span class="col-value-admin">{{ req.category|default:"Допомога" }}</span>
                 </div>
-                <div class="data-col">
-                    <span class="col-label">ЛОКАЦІЯ</span>
-                    <span class="col-value">{{ req.location }}</span>
+                <div class="data-col-admin">
+                    <span class="col-label-admin">ЛОКАЦІЯ</span>
+                    <span class="col-value-admin">{{ req.location }}</span>
                 </div>
-                <div class="data-col">
-                    <span class="col-label">ДАТА</span>
-                    <span class="col-value">{{ req.created_at|date:"d.m.Y" }}</span>
+                <div class="data-col-admin">
+                    <span class="col-label-admin">ДАТА</span>
+                    <span class="col-value-admin">{{ req.created_at|date:"d.m.Y" }}</span>
                 </div>
-                <div class="data-col">
-                    <span class="col-label">СТАТУС</span>
-                    <span class="col-value">{{ req.get_status_display }}</span>
+                <div class="data-col-admin">
+                    <span class="col-label-admin">СТАТУС</span>
+                    <span class="col-value-admin">{{ req.get_status_display }}</span>
                 </div>
-                <div class="data-col">
-                    <span class="col-label">ВОЛОНТЕР</span>
-                    <span class="col-value">{{ req.volunteer.username|default:"Не призначено" }}</span>
+                <div class="data-col-admin">
+                    <span class="col-label-admin">ВОЛОНТЕР</span>
+                    <span class="col-value-admin">{{ req.volunteer.username|default:"Не призначено" }}</span>
                 </div>
             </div>
             
-            <div class="item-actions-vertical">
+            <div class="item-actions-vertical-admin">
                 <form method="POST" action="{% url 'delete_request' req.id %}" style="width: 100%;">
                     {% csrf_token %}
-                    <button type="submit" class="btn-action btn-red" onclick="return confirm('Видалити цю заявку?')">ВИДАЛИТИ</button>
+                    <button type="submit" class="btn-action-admin btn-red-admin" onclick="return confirm('Видалити цю заявку?')">ВИДАЛИТИ</button>
                 </form>
-                <a href="{% url 'edit_request' req.id %}" class="btn-action btn-blue" style="text-decoration: none; text-align: center;">
+                <a href="{% url 'edit_request' req.id %}" class="btn-action-admin btn-blue-admin" style="text-decoration: none; text-align: center;">
                     РЕДАГУВАТИ
                 </a>
                 <form method="POST" action="{% url 'admin_change_status' req.id %}" style="width: 100%; display: flex; gap: 5px;">
                     {% csrf_token %}
-                    <select name="status" class="btn-action btn-blue" style="appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 10px;">
+                    <select name="status" class="btn-action-admin btn-blue-admin" style="appearance: none; -webkit-appearance: none; cursor: pointer; padding-right: 10px;">
                         <option value="new" {% if req.status == 'new' %}selected{% endif %}>НОВА</option>
                         <option value="in_progress" {% if req.status == 'in_progress' %}selected{% endif %}>В ПРОЦЕСІ</option>
                         <option value="completed" {% if req.status == 'completed' %}selected{% endif %}>ВИКОНАНА</option>
                     </select>
-                    <button type="submit" class="btn-action btn-blue" style="width: 40px; flex: none;">✓</button>
+                    <button type="submit" class="btn-action-admin btn-blue-admin" style="width: 40px; flex: none;">✓</button>
                 </form>
             </div>
         </div>
@@ -192,31 +84,31 @@
         {% endfor %}
     </section>
 
-    <section class="section-card">
+    <section class="section-card-admin" style="margin-bottom: 200px; padding-bottom: 300px;">
         <h3>КОРИСТУВАЧІ</h3>
         {% for u in all_users %}
-        <div class="item-card" id="user-{{ u.id }}">
-            <div class="item-data-row">
-                <div class="data-col">
-                    <span class="col-label">ІМ'Я</span>
-                    <span class="col-value">{{ u.first_name|default:u.username }}</span>
+        <div class="item-card-admin" id="user-{{ u.id }}">
+            <div class="item-data-row-admin">
+                <div class="data-col-admin">
+                    <span class="col-label-admin">ІМ'Я</span>
+                    <span class="col-value-admin">{{ u.first_name|default:u.username }}</span>
                 </div>
-                <div class="data-col">
-                    <span class="col-label">РОЛЬ</span>
-                    <span class="col-value">{{ u.get_role_display }}</span>
+                <div class="data-col-admin">
+                    <span class="col-label-admin">РОЛЬ</span>
+                    <span class="col-value-admin">{{ u.get_role_display }}</span>
                 </div>
-                <div class="data-col">
-                    <span class="col-label">СТАТУС</span>
-                    <span class="col-value" style="color: {% if u.is_active %}#0047AB{% else %}#CC0000{% endif %};">
+                <div class="data-col-admin">
+                    <span class="col-label-admin">СТАТУС</span>
+                    <span class="col-value-admin" style="color: {% if u.is_active %}#0047AB{% else %}#CC0000{% endif %};">
                         {% if u.is_active %}АКТИВНИЙ{% else %}ЗАБЛОКОВАНИЙ{% endif %}
                     </span>
                 </div>
             </div>
             
-            <div class="item-actions-vertical">
+            <div class="item-actions-vertical-admin">
                 <form method="POST" action="{% url 'toggle_user_status' u.id %}" style="width: 100%;">
                     {% csrf_token %}
-                    <button type="submit" class="btn-action btn-red">
+                    <button type="submit" class="btn-action-admin btn-red-admin">
                         {% if u.is_active %}ЗАБЛОКУВАТИ{% else %}РОЗБЛОКУВАТИ{% endif %}
                     </button>
                 </form>
@@ -225,7 +117,7 @@
         {% empty %}
         <p style="text-align: center; color: white;">Користувачів не знайдено.</p>
         {% endfor %}
-    </section>
+    </b></section>
 </div>
 
 

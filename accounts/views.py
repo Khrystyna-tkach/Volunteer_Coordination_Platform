@@ -44,6 +44,7 @@ def register_view(request):
 
     return render(request, 'accounts/register.html')
 
+
 # Вхід
 def login_view(request):
     if request.method == 'POST':
@@ -163,10 +164,18 @@ def edit_request(request, pk):
         return redirect('home')
 
     if request.method == 'POST':
+        # Перевірка і оновлення полів заявки, у тому числі contact_info
+        contact_info = request.POST.get('contact_info')
+        
+        # Перевіряємо, чи контактна інформація не порожня
+        if contact_info is None or contact_info.strip() == '':
+            messages.error(request, 'Поле контактної інформації не може бути порожнім.')
+            return render(request, 'accounts/edit_request.html', {'req': req})
+        
         # Оновлюємо поля моделі даними з форми
         req.title = request.POST.get('title')
         req.description = request.POST.get('description')
-        req.contact_info = request.POST.get('contact_info')
+        req.contact_info = contact_info
         req.location = request.POST.get('location')
         req.save() # Зберігаємо в базу
         return redirect('admin_page') # Повертаємось в адмінку

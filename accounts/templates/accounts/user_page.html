@@ -1,195 +1,51 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+<link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+
     <meta charset="UTF-8">
     <title>HelpBridge - Кабінет користувача</title>
     <style>
-        /* Базові налаштування */
-        body { background-color: #FFFFFF; font-family: 'Inter', sans-serif; margin: 0; padding: 0; }
-        
-        /* Хедер з білою лінією */
-        header { 
-            background-color: #66A3FF; 
-            color: white; 
-            padding: 10px 40px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            border-bottom: 1px solid white; /* Та сама тонка біла лінія */
-        }
-        .logo-text { font-weight: bold; font-size: 20px; letter-spacing: 1px; }
-        .logout-icon { text-decoration: none; color: white; font-size: 28px; }
-
-        /* банер */
-        .hero-banner { 
-            background-color: #66A3FF; 
-            color: white; 
-            padding: 50px 80px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-        }
-        .hero-text { max-width: 65%; }
-        .hero-text h2 { font-size: 24px; margin-bottom: 15px; text-transform: uppercase; }
-        .hero-text p { font-size: 16px; line-height: 1.4; font-weight: 300; }
-        .hero-logo-circle { 
-            background: white; 
-            border-radius: 50%; 
-            width: 130px; 
-            height: 130px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
-        }
-        /* Тут можна вставити картинку логотипу, якщо вона є */
-        .hero-logo-circle img { width: 80%; }
-
-        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
-
-        /* Картки розділів */
-        .section-card { 
-            background-color: #99C2FF; 
-            border-radius: 30px; 
-            padding: 40px; 
-            margin-bottom: 50px; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-        }
-        .section-card h3 { 
-            text-align: center; 
-            color: #0047AB; 
-            margin-bottom: 30px; 
-            font-size: 22px; 
-            font-weight: bold;
-        }
-
-        /* Форма створення заявки */
-        .request-form { display: flex; flex-direction: column; align-items: center; gap: 20px; }
-        .input-group { width: 100%; display: flex; flex-direction: column; align-items: center; }
-        .input-group label { color: #0047AB; font-weight: bold; margin-bottom: 8px; font-size: 14px; }
-        .request-form input, .request-form textarea { 
-            width: 80%; 
-            padding: 15px; 
-            border-radius: 10px; 
-            border: none; 
-            font-size: 14px;
-            background-color: white;
-        }
-        .request-form button { 
-            background-color: #2D63C8; 
-            color: white; 
-            border: none; 
-            padding: 12px 30px; 
-            border-radius: 10px; 
-            font-weight: bold; 
-            cursor: pointer; 
-            margin-top: 10px;
-        }
-
-        /* Список заявок (білі блоки) */
-        .request-list { width: 90%; margin: 0 auto; }
-        .request-header { 
-            display: flex; 
-            justify-content: space-between; 
-            padding: 0 30px 10px; 
-            font-weight: bold; 
-            color: #0047AB;
-            font-size: 14px;
-        }
-        .request-item { 
-            background: white; 
-            padding: 20px 30px; 
-            border-radius: 15px; 
-            margin-bottom: 15px; 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center; 
-            color: #2D63C8; 
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .request-item span { flex: 1; text-align: center; }
-        .request-item span:first-child { text-align: left; }
-        .request-item span:last-child { text-align: right; }
-
-        /* Контейнер для елемента заявки, щоб опис був під ним */
-        .request-wrapper {
-            margin-bottom: 15px;
-        }
-
-        .request-item {
-            margin-bottom: 0 !important; /* Прибираємо відступ знизу, бо тепер є wrapper */
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-
-        .request-item:hover {
-            background: #f0f5ff;
-        }
-
-        /* Стиль висувного опису */
-        .request-details {
-            background: rgba(255, 255, 255, 0.8);
-            margin: 0 15px;
-            padding: 0 30px;
-            max-height: 0; /* Спочатку сховано */
-            overflow: hidden;
-            border-radius: 0 0 15px 15px;
-            transition: max-height 0.4s ease-out, padding 0.4s ease;
-            color: #2D63C8;
-            font-size: 14px;
-        }
-
-        /* Клас, який додаватиме JS при натисканні */
-        .request-details.active {
-            max-height: 500px; /* Достатня висота для тексту */
-            padding: 20px 30px;
-            border-top: 1px solid #99C2FF;
-        }
-
-        .details-content {
-            padding-bottom: 10px;
-        }
-
-        .details-content strong {
-            color: #0047AB;
-        }
+ 
     </style>
 </head>
-<body>
+<body class="user">
 
-<header>
-    <a href="{% url 'home' %}" class="logo-text" style="text-decoration: none; color: white;">HELPBRIDGE</a>
-    <a href="{% url 'logout' %}" class="logout-icon" title="Вийти">⎗</a> 
+<header class="header-user">
+    <a href="{% url 'home' %}" class="logo-text-user" style="text-decoration: none; color: white;"><b>HELPBRIDGE</b></a>
+    <a href="{% url 'logout' %}"  title="Вийти" class="logout-icon-user"><img src="{% static 'accounts/img/exit_header.svg' %}" ></a> 
 </header>
 
-<div class="hero-banner">
-    <div class="hero-text">
-        <h2>ПРИВІТ! ТИ ЗАВІТАВ НА ПЛАТФОРМУ HELPBRIDGE</h2>
-        <p>Тут ти можеш швидко отримати допомогу, створивши заявку. Наша спільнота волонтерів допомагає людям у складних ситуаціях — від базових потреб до термінових запитів.</p>
+<div class="hero-banner-user">
+    <div class="hero-text-user">
+        <h3 style="padding-bottom: 20px;"><b>ПРИВІТ! ТИ ЗАВІТАВ НА ПЛАТФОРМУ HELPBRIDGE</b></h3>
+        <h4><b>Тут ти можеш швидко отримати допомогу, створивши заявку. Наша спільнота волонтерів допомагає людям у складних ситуаціях — від базових потреб до термінових запитів.</b></h4>
     </div>
-    <div class="hero-logo-circle">
-        <span style="color: #66A3FF; font-weight: bold;">LOGO</span>
+    <div class="hero-logo-circle-user"  box-shadow: 0 10px 30px rgba(0,0,0,0.2);>
+        <span > <img src="{% static 'accounts/img/logo.png' %}" ></span>
     </div>
 </div>
 
-<div class="container">
-    <section class="section-card">
-        <h3>СТВОРИТИ ЗАЯВКУ</h3>
-        <form class="request-form" method="POST" action="{% url 'create_request' %}">
+<div class="container-user">
+    <section class="section-card-user">
+        <h3><b>СТВОРИТИ ЗАЯВКУ</h3>
+        <form class="request-form-user" method="POST" action="{% url 'create_request' %}">
             {% csrf_token %}
-            <div class="input-group">
+            <div class="input-group-user">
                 <label>НАЗВА ПРОБЛЕМИ</label>
                 <input type="text" name="title" required>
             </div>
-            <div class="input-group">
+            <div class="input-group-user">
                 <label>ОПИС ПРОБЛЕМИ</label>
                 <textarea name="description" rows="4" required></textarea>
             </div>
-            <div class="input-group">
+            <div class="input-group-user">
                 <label>КОНТАКТНІ ДАНІ</label>
                 <input type="text" name="contact_info" required>
             </div>
-            <div class="input-group">
+            <div class="input-group-user">
                 <label>ЛОКАЦІЯ</label>
                 <input type="text" name="location" required>
             </div>
@@ -197,18 +53,18 @@
         </form>
     </section>
 
-    <section class="section-card">
+    <section class="section-card-user" style="margin-bottom: 200px; padding-bottom: 300px;">
         <h3>МОЇ ЗАЯВКИ</h3>
-        <div class="request-list">
+        <div class="request-list-user">
         {% for req in user_requests %}
-            <div class="request-wrapper">
-            <div class="request-item" onclick="toggleDetails(this)">
+            <div class="request-wrapper-user">
+            <div class="request-item-user" onclick="toggleDetails(this)">
                 <span>{{ req.title }}</span>
                 <span>{{ req.created_at|date:"d.m.Y" }}</span>
                 <span>{{ req.get_status_display }}</span>
             </div>
-            <div class="request-details">
-                <div class="details-content">
+            <div class="request-details-user">
+                <div class="details-content-user">
                     <p><strong>ОПИС:</strong> {{ req.description }}</p>
                     <p><strong>ЛОКАЦІЯ:</strong> {{ req.location }}</p>
                     <p><strong>КОНТАКТИ:</strong> {{ req.contact_info }}</p>
@@ -218,7 +74,7 @@
         {% empty %}
         <p style="text-align: center; color: white;">Заявок поки немає.</p>
         {% endfor %}
-        </div>
+    </b> </div>
     </section>
 </div>
 
@@ -231,7 +87,7 @@ function toggleDetails(element) {
     const details = element.nextElementSibling;
     
     // Закриваємо всі інші відкриті описи
-    document.querySelectorAll('.request-details').forEach(item => {
+    document.querySelectorAll('.request-details-user').forEach(item => {
         if (item !== details) {
             item.classList.remove('active');
         }
