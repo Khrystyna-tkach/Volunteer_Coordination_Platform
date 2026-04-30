@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+          {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+
+    <meta charset="UTF-8">
+    <title>HelpBridge - Редагування</title>
+    <style>
+       
+    </style>
+</head>
+<body class="edit">
+
+<header class="header-edit">
+    <div class="logo-text-edit" style="font-size: 35px; padding-left: 50px; padding-bottom: 10px; padding-top: 10px;"><b>HELPBRIDGE</div>
+    <a href="{% url 'logout' %}"  title="Вийти" class="login-btn-edit" style="padding-right: 50px;"> 
+        <img src="{% static 'accounts/img/exit_header.svg' %}" ></a> 
+</header>
+
+<div class="container-edit" style="margin-bottom: 200px; padding-bottom: 100px;">
+    <section class="section-card-edit">
+        <h3>РЕДАГУВАННЯ ЗАЯВКИ</h3>
+        <form method="POST">
+            {% csrf_token %}
+            <div class="input-group-edit">
+                <label>НАЗВА ПРОБЛЕМИ</label>
+                <input type="text" name="title" value="{{ req.title }}" required>
+            </div>
+            <div class="input-group-edit">
+                <label>ОПИС ПРОБЛЕМИ</label>
+                <textarea name="description" rows="4" required>{{ req.description }}</textarea>
+            </div>
+            <div class="input-group-edit">
+                <label>КОНТАКТНІ ДАНІ</label>
+                <input type="text" name="contact_info-edit" value="{{ req.contact_info }}" required>
+            </div>
+            <div class="input-group-edit">
+                <label>ЛОКАЦІЯ</label>
+                <input type="text" name="location" value="{{ req.location }}" required>
+            </div>
+            
+            <div class="btn-group-edit">
+                <button type="submit" class="btn-save-edit">ЗБЕРЕГТИ ЗМІНИ</button>
+                <a href="{% url 'admin_page' %}" class="btn-cancel-edit">СКАСУВАТИ</b></a>
+            </div>
+        </form>
+    </section>
+</div>
+
+
+{% include 'includes/footer.html' %}
+
+</body>
+</html>

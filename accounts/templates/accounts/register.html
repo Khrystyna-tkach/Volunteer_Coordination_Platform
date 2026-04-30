@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    {% load static %}
+
+    <link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+
+    <meta charset="UTF-8">
+    <title>Реєстрація - HelpBridge</title>
+    <style>
+
+    </style>
+</head>
+<body class="reg">
+
+<div class="register-card-reg">
+    <h1><b>HELPBRIDGE</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <h3>ОБЕРІТЬ ВАШУ РОЛЬ:</h3>
+        <div class="roles-reg">
+            <input type="radio" id="role_user" name="role" value="user" required checked>
+            <label for="role_user" class="role-option-reg">КОРИСТУВАЧ</label>
+
+            <input type="radio" id="role_volunteer" name="role" value="volunteer">
+            <label for="role_volunteer" class="role-option-reg">ВОЛОНТЕР</label>
+
+            <input type="radio" id="role_admin" name="role" value="admin">
+            <label for="role_admin" class="role-option-reg">АДМІНІСТРАТОР</label>
+
+        </div>
+
+        <h3 style="text-align: left;">Реєстрація</h3>
+
+        <div class="input-group-reg">
+            <label>Ім'я</label>
+            <input type="text" name="name"  required>
+        </div>
+
+        <div class="input-group-reg">
+            <label>Email</label>
+            <input type="email" name="email" placeholder="username@gmail.com" required>
+        </div>
+
+        <div class="input-group-reg">
+            <label>Password</label>
+            <input type="password" name="password" placeholder="Password" required>
+        </div>
+
+        <button type="submit" class="btn-submit-reg">Зареєструватись</button>
+        <!-- Блок для відображення помилок -->
+        {% if messages %}
+            <div class="error-message">
+                <div class="error-message">
+              {% for message in messages %}
+              {{ message }}
+              {% endfor %}
+</div>
+            </div>
+        {% endif %}
+    </form>
+
+    <div class="footer-text-reg">
+        Вже маєш акаунт?<br>
+        <a href="{% url 'login' %}" style="color: #003465;  text-decoration: none;">Увійти</a>
+    </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,93 @@
+
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+
+<meta charset="UTF-8">
+<title>HelpBridge - Головна</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+{% load static %}
+<link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+
+</head>
+
+<body>
+
+<header>
+    <a href="{% url 'home' %}"  class="logo"><b>HELPBRIDGE</b></a>
+
+    <div style="display: flex; align-items: center; gap: 20px;">
+        {% if user.is_authenticated %}
+            <a href="{% if user.role == 'admin' %}{% url 'admin_page' %}{% elif user.role == 'volunteer' %}{% url 'volunteer_page' %}{% else %}{% url 'user_page' %}{% endif %}" 
+               class="login-btn" title="Мій кабінет">
+               <img src="{% static 'accounts/img/login.svg' %}" >
+            </a>
+            
+            <a href="{% url 'logout' %}"  title="Вийти" class="login-btn"><img src="{% static 'accounts/img/exit_header.svg' %}" ></a>
+        {% else %}
+            <a href="{% url 'login' %}" class="login-btn"><img src="{% static 'accounts/img/login.svg' %}" >
+</a>
+        {% endif %}
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+    <div class="hero-text">
+        <h3><b>WELCOME TO HELPBRIDGE</h3>
+        <h1>МАЛЕНЬКА ДІЯ КОЖНОГО — <br>ВЕЛИКА ЗМІНА ДЛЯ ВСІХ</b></h1>
+    </div>
+    <div class="hero-logo">
+       <img src="{% static 'accounts/img/logo_header.svg' %}" class="logo" >
+ 
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+    <div class="about-img">
+    
+
+<img src="{% static 'accounts/img/main_w_grand.svg' %}" >
+    </div>
+
+    <div class="about-text">
+        <h2><b>РАЗОМ МИ МОЖЕМО БІЛЬШЕ</b></h2>
+        <p>Ми — команда розробників та дизайнерів, яка працює над створенням сучасної цифрової платформи для координації волонтерської допомоги.</p>
+        <p>Наша мета — зробити процес допомоги швидким, зручним і прозорим.</p>
+        <p>Ми створюємо систему, яка дозволяє користувачам залишати заявки, волонтерам — швидко їх виконувати, а адміністраторам — контролювати весь процес.</p>
+        <p>Ми віримо, що технології можуть змінити світ на краще.</p>
+    </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+   <img src="{% static 'accounts/img/stat.png' %}" >
+
+</section>
+
+<!-- MISSION -->
+<section class="mission">
+    <div class="mission-text">
+        <h2><b>НАША МІСІЯ</b></h2>
+        <ul>
+            <li>🔷 Об’єднати людей, які потребують допомоги, з тими, хто готовий її надати</li>
+            <li>🔷 Скоротити час реагування на запити</li>
+            <li>🔷 Зробити волонтерство більш організованим</li>
+            <li>🔷 Підвищити довіру та прозорість</li>
+        </ul>
+    </div>
+    <div class="about-img">
+    
+
+<img src="{% static 'accounts/img/main_w_woman.svg' %}" >
+    </div>
+</section>
+
+
+
+{% include 'includes/footer.html' %}
+
+</body>
+</html>

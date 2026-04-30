@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    {% load static %}
+<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+<link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+
+    <meta charset="UTF-8">
+    <title>HelpBridge - Кабінет користувача</title>
+    <style>
+ 
+    </style>
+</head>
+<body class="user">
+
+<header class="header-user">
+    <a href="{% url 'home' %}" class="logo-text-user" style="text-decoration: none; color: white;"><b>HELPBRIDGE</b></a>
+    <a href="{% url 'logout' %}"  title="Вийти" class="logout-icon-user"><img src="{% static 'accounts/img/exit_header.svg' %}" ></a> 
+</header>
+
+<div class="hero-banner-user">
+    <div class="hero-text-user">
+        <h3 style="padding-bottom: 20px;"><b>ПРИВІТ! ТИ ЗАВІТАВ НА ПЛАТФОРМУ HELPBRIDGE</b></h3>
+        <h4><b>Тут ти можеш швидко отримати допомогу, створивши заявку. Наша спільнота волонтерів допомагає людям у складних ситуаціях — від базових потреб до термінових запитів.</b></h4>
+    </div>
+    <div class="hero-logo-circle-user"  box-shadow: 0 10px 30px rgba(0,0,0,0.2);>
+        <span > <img src="{% static 'accounts/img/logo.png' %}" ></span>
+    </div>
+</div>
+
+<div class="container-user">
+    <section class="section-card-user">
+        <h3><b>СТВОРИТИ ЗАЯВКУ</h3>
+        <form class="request-form-user" method="POST" action="{% url 'create_request' %}">
+            {% csrf_token %}
+            <div class="input-group-user">
+                <label>НАЗВА ПРОБЛЕМИ</label>
+                <input type="text" name="title" required>
+            </div>
+            <div class="input-group-user">
+                <label>ОПИС ПРОБЛЕМИ</label>
+                <textarea name="description" rows="4" required></textarea>
+            </div>
+            <div class="input-group-user">
+                <label>КОНТАКТНІ ДАНІ</label>
+                <input type="text" name="contact_info" required>
+            </div>
+            <div class="input-group-user">
+                <label>ЛОКАЦІЯ</label>
+                <input type="text" name="location" required>
+            </div>
+            <button type="submit">Надіслати заявку</button>
+        </form>
+    </section>
+
+    <section class="section-card-user" style="margin-bottom: 200px; padding-bottom: 300px;">
+        <h3>МОЇ ЗАЯВКИ</h3>
+        <div class="request-list-user">
+        {% for req in user_requests %}
+            <div class="request-wrapper-user">
+            <div class="request-item-user" onclick="toggleDetails(this)">
+                <span>{{ req.title }}</span>
+                <span>{{ req.created_at|date:"d.m.Y" }}</span>
+                <span>{{ req.get_status_display }}</span>
+            </div>
+            <div class="request-details-user">
+                <div class="details-content-user">
+                    <p><strong>ОПИС:</strong> {{ req.description }}</p>
+                    <p><strong>ЛОКАЦІЯ:</strong> {{ req.location }}</p>
+                    <p><strong>КОНТАКТИ:</strong> {{ req.contact_info }}</p>
+                </div>
+            </div>
+        </div>
+        {% empty %}
+        <p style="text-align: center; color: white;">Заявок поки немає.</p>
+        {% endfor %}
+    </b> </div>
+    </section>
+</div>
+
+
+{% include 'includes/footer.html' %}
+
+<script>
+function toggleDetails(element) {
+    // Знаходимо блок деталей, який іде наступним після натиснутого елемента
+    const details = element.nextElementSibling;
+    
+    // Закриваємо всі інші відкриті описи
+    document.querySelectorAll('.request-details-user').forEach(item => {
+        if (item !== details) {
+            item.classList.remove('active');
+        }
+    });
+
+    // Перемикаємо клас active для поточного опису
+    details.classList.toggle('active');
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    {% load static %}
+    <link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+    <link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+    <meta charset="UTF-8">
+    <title>Вхід - HelpBridge</title>
+    <style>
+ </style>
+</head>
+<body class="log">
+    <div class="login-card-log">
+        <h1><b>HELPBRIDGE</b></h1>
+        <form method="POST">
+            {% csrf_token %}
+            
+
+            <h3 style="text-align: left;"><b>Вхід</h3>
+            <div class="input-group-log">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="username@gmail.com" required>
+            </div>
+            <div class="input-group-log">
+                <label>Password</label>
+                <input type="password" name="password" placeholder="Password" required>
+            </div>
+
+            <button type="submit" class="btn-submit-log"><b>Увійти</b></button>
+            {% if messages %}
+            <div class="error-message">
+                <div class="error-message">
+              {% for message in messages %}
+              {{ message }}
+              {% endfor %}
+</div>
+            </div>
+        {% endif %}
+        </form>
+        <div class="footer-text-log">
+            <b>Ще немає створеного акаунта?<br>
+            <a href="{% url 'register' %}" style="color: #003465;  text-decoration: none;">Зареєструватись</a>
+        </div>
+    </div>
+</body>
+</html>

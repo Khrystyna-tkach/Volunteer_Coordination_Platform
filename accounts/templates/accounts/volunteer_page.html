@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+        {% load static %}
+<link rel="stylesheet" href="{% static 'accounts/css/style.css' %}">
+<link rel="icon" type="image/png" href="{% static 'accounts/img/logo.png' %}">
+
+    <meta charset="UTF-8">
+    <title>HelpBridge - Кабінет волонтера</title>
+    <style>
+ 
+    </style>
+</head>
+<body class="vol">
+
+<header class="header-vol">
+    <a href="{% url 'home' %}" class="logo-text-user" style="text-decoration: none; color: white;"><b>HELPBRIDGE </b></a>
+    <a href="{% url 'logout' %}"  title="Вийти" class="logout-icon-user"><img src="{% static 'accounts/img/exit_header.svg' %}" ></a> 
+</header>
+
+<div class="hero-banner-user">
+    <div class="hero-text-user">
+        <h3 style="padding-bottom: 20px;"><b>ПРИВІТ! ТИ ЗАВІТАВ НА ПЛАТФОРМУ HELPBRIDGE </b></h2>
+        <h4><b>ДЯКУЄМО, ЩО ТИ СТАВ ЧАСТИНОЮ НАШОЇ ВОЛОНТЕРСЬКОЇ СПІЛЬНОТИ. ТУТ ТИ МОЖЕШ ДОПОМАГАТИ ЛЮДЯМ, ЯКІ ЦЬОГО ПОТРЕБУЮТЬ, І ЗМІНЮВАТИ СВІТ НАВКОЛО СЕБЕ. </b></h4>
+    </div>
+    <div class="hero-logo-circle-vol"  box-shadow: 0 10px 30px rgba(0,0,0,0.2);>
+                <span > <img src="{% static 'accounts/img/logo.png' %}" ></span>
+
+    </div>
+</div>
+
+<div class="container-vol">
+    <section class="section-card-vol">
+        <h3>ДОСТУПНІ ЗАЯВКИ</h3>
+        {% for req in available_requests %}
+        <div class="request-item-vol">
+            <div class="request-data-vol" onclick="toggleDetails(this)">
+                <div class="data-column-vol">
+                    <span class="data-label-vol">Назва проблеми</span>
+                    <span class="data-value-vol">{{ req.title }}</span>
+                </div>
+                <div class="data-column-vol">
+                    <span class="data-label-vol">Категорія</span>
+                    <span class="data-value-vol">{{ req.category|default:"Допомога" }}</span>
+                </div>
+                <div class="data-column-vol">
+                    <span class="data-label-vol">Локація</span>
+                    <span class="data-value-vol">{{ req.location }}</span>
+                </div>
+            </div>
+
+            <div class="request-details-vol">
+                <div class="details-content-vol">
+                    <p><strong>ОПИС:</strong> {{ req.description }}</p>
+                    <p><strong>КОНТАКТИ:</strong> {{ req.contact_info }}</p>
+                </div>
+            </div>
+
+            <div class="action-area-vol">
+                <form method="POST" action="{% url 'take_request' req.id %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-take-vol">ВЗЯТИ В ОБРОБКУ</button>
+                </form>
+            </div>
+        </div>
+        {% empty %}
+        <p style="text-align: center; color: white;">Зараз немає доступних заявок.</p>
+        {% endfor %}
+    </section>
+
+    <section class="section-card-vol" style="margin-bottom: 200px; padding-bottom: 300px;">
+        <h3>МОЇ АКТИВНІ ЗАЯВКИ</h3>
+        {% for req in my_tasks %}
+        <div class="request-item-vol">
+            <div class="request-data-vol" onclick="toggleDetails(this)">
+                <div class="data-column-vol">
+                    <span class="data-label-vol">НАЗВА ЗАЯВКИ</span>
+                    <span class="data-value-vol">{{ req.title }}</span>
+                </div>
+                <div class="data-column-vol">
+                    <span class="data-label-vol">КАТЕГОРІЯ</span>
+                    <span class="data-value-vol">{{ req.category|default:"Допомога" }}</span>
+                </div>
+                <div class="data-column-vol">
+                    <span class="data-label-vol">ЛОКАЦІЯ</span>
+                    <span class="data-value-vol">{{ req.location }}</span>
+                </div>
+                <div class="data-column-vol">
+                    <span class="data-label-vol">СТАТУС</span>
+                    <span class="data-value-vol" style="color: #0047AB;">{{ req.get_status_display }}</span>
+                </div>
+            </div>
+
+            <div class="request-details-vol">
+                <div class="details-content-vol">
+                    <p><strong>ПОВНИЙ ОПИС:</strong> {{ req.description }}</p>
+                    <p><strong>ЯК ЗВ'ЯЗАТИСЯ:</strong> {{ req.contact_info }}</p>
+                </div>
+            </div>
+
+            <div class="action-area-vol">
+                <form method="POST" action="{% url 'update_status' req.id %}">
+                    {% csrf_token %}
+                    <select name="status" class="status-select-vol">
+                        <option value="in_progress" {% if req.status == 'in_progress' %}selected{% endif %}>В процесі</option>
+                        <option value="completed" {% if req.status == 'completed' %}selected{% endif %}>Виконана</option>
+                    </select>
+                    <button type="submit" class="btn-update-vol">ОНОВИТИ СТАТУС</button>
+                </form>
+            </div>
+        </div>
+        {% empty %}
+        <p style="text-align: center; color: white;">У вас немає активних завдань. </b></p>
+        {% endfor %}
+   </section>
+</div>
+
+
+{% include 'includes/footer.html' %}
+<script>
+function toggleDetails(element) {
+    // Знаходимо блок деталей, який іде наступним після request-data
+    const details = element.nextElementSibling;
+    
+    // Перемикаємо клас active
+    details.classList.toggle('active');
+    
+    if (details.classList.contains('active')) {
+        element.style.backgroundColor = '#f0f7ff';
+    } else {
+        element.style.backgroundColor = 'transparent';
+    }
+}
+</script>
+</body>
+</html>
