@@ -19,7 +19,7 @@
             <h3 style="text-align: left;"><b>Вхід</h3>
             <div class="input-group-log">
                 <label>Email</label>
-                <input type="email" name="email" placeholder="username@gmail.com" required>
+                <input type="email" name="email" value="{{ email|default:'' }}" placeholder="username@gmail.com" required>
             </div>
             <div class="input-group-log">
                 <label>Password</label>
@@ -29,11 +29,9 @@
             <button type="submit" class="btn-submit-log"><b>Увійти</b></button>
             {% if messages %}
             <div class="error-message">
-                <div class="error-message">
               {% for message in messages %}
               {{ message }}
               {% endfor %}
-</div>
             </div>
         {% endif %}
         </form>

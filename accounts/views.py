@@ -45,21 +45,40 @@ def register_view(request):
     return render(request, 'accounts/register.html')
 
 
-# Вхід
 def login_view(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
 
-        # Спробуємо аутентифікувати користувача
+        #  шукаємо користувача в базі за email
+        try:
+            user_candidate = CustomUser.objects.get(email=email)
+            
+            # Якщо користувач знайдений, але він заблокований 
+            if not user_candidate.is_active:
+                # Перевіряємо, чи правильний пароль він ввів
+                if user_candidate.check_password(password):
+                    messages.error(request, 
+                        'Доступ до вашого облікового запису обмежено через порушення правил платформи HelpBridge. '
+                        'Для отримання додаткової інформації зверніться до служби підтримки.'
+                    )
+                    return render(request, 'accounts/login.html', {'email': email})
+                else:
+                    # Якщо пароль невірний 
+                    messages.error(request, 'Невірний email або пароль.')
+                    return render(request, 'accounts/login.html', {'email': email})
+        except CustomUser.DoesNotExist:
+            # Якщо користувача взагалі немає в базі, йдемо далі до стандартної перевірки
+            pass
+
+        # аутентифікація для активних користувачів
         user = authenticate(request, username=email, password=password)
 
-        # Якщо користувача не існує або пароль невірний
         if user is None:
             messages.error(request, 'Невірний email або пароль.')
             return render(request, 'accounts/login.html')
 
-        # Успішна аутентифікація, логін і редірект на відповідну сторінку
+        # Успішний вхід
         login(request, user)
 
         if user.role == 'volunteer':
@@ -191,5 +210,5 @@ def admin_change_status(request, pk):
             req.status = new_status
             req.save()
     
-    # Повертаємо адміна до конкретної заявки за допомогою якоря
+    # Повертаємо адміна до конкретної заявки
     return redirect(reverse('admin_page') + f"#req-{pk}")
