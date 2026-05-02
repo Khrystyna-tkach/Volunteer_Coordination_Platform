@@ -240,9 +240,14 @@ body{
 .login-btn {
     text-decoration: none;
     color: black;
-   
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     padding: 10px 20px;
     border-radius: 20px;
+
     font-size: 14px;
     font-weight: bold;
     transition: 0.3s;
@@ -251,12 +256,6 @@ body{
 .login-btn:hover {
     background-color: #4e7ee5;
 }
-
-
-
-
-
-
 
 
 .footer {
@@ -394,9 +393,9 @@ body{
                 color: white; 
                 font-size: 28px; 
                 padding-right: 50px;
+
             }
 
-            
             /* банер */
             .hero-banner-user { 
                 background-color: #66A3FF; 
