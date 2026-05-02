@@ -5,7 +5,7 @@ header{
     padding:20px 60px;
     background:#60A5FA;
     color:white;
-    
+    border-bottom: 1px solid white;    
 }
 
 
@@ -240,9 +240,14 @@ body{
 .login-btn {
     text-decoration: none;
     color: black;
-   
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
     padding: 10px 20px;
     border-radius: 20px;
+
     font-size: 14px;
     font-weight: bold;
     transition: 0.3s;
@@ -251,12 +256,6 @@ body{
 .login-btn:hover {
     background-color: #4e7ee5;
 }
-
-
-
-
-
-
 
 
 .footer {
@@ -378,6 +377,7 @@ body{
                 justify-content: space-between; 
                 align-items: center;
                 padding-top: 50px;
+                height: 120px;
             }
             .logo-text-user { 
                 font-weight: bold; 
@@ -386,13 +386,14 @@ body{
                 letter-spacing: 7%;
                 font-family: 'Poppins', sans-serif;
                 padding-left: 50px;
-                padding-top: 50px;
+                
             }
             .logout-icon-user { 
                 text-decoration: none; 
                 color: white; 
                 font-size: 28px; 
                 padding-right: 50px;
+
             }
 
             /* банер */
