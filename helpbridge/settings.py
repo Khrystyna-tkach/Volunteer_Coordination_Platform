@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 import os
+import re
 from pathlib import Path
 import dj_database_url 
 from dotenv import load_dotenv
@@ -30,15 +31,19 @@ SECRET_KEY = os.environ.get("SECRET_KEY", "django-insecure-local-key-123")
 DEBUG = os.environ.get("DEBUG", "True").lower() == "true"
 
 ALLOWED_HOSTS = [
-    host.strip()
-    for host in os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost").split(",")
-    if host.strip()
+    host
+    for host in re.split(r"[\s,]+", os.environ.get("ALLOWED_HOSTS", "127.0.0.1,localhost"))
+    if host
 ]
 
+render_hostname = os.environ.get("RENDER_EXTERNAL_HOSTNAME")
+if render_hostname:
+    ALLOWED_HOSTS.append(render_hostname)
+
 CSRF_TRUSTED_ORIGINS = [
-    origin.strip()
-    for origin in os.environ.get("CSRF_TRUSTED_ORIGINS", "").split(",")
-    if origin.strip()
+    origin
+    for origin in re.split(r"[\s,]+", os.environ.get("CSRF_TRUSTED_ORIGINS", ""))
+    if origin
 ]
 
 
