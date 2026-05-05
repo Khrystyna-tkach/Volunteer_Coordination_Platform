@@ -8,6 +8,7 @@ venv/
 db.sqlite3
 media/
 static_root/
+staticfiles/
 
 # IDE
 .vscode/
