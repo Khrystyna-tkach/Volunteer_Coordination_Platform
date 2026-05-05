@@ -12,3 +12,5 @@ static_root/
 # IDE
 .vscode/
 .idea/
+.vs/
+node_modules/

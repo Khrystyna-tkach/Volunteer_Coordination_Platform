@@ -9,7 +9,8 @@ https://docs.djangoproject.com/en/6.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/6.0/ref/settings/
 """
-
+import dj_database_url 
+import os
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -20,12 +21,12 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/6.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-y@pq44-!wr$ba_1wa--m133)!-ik*8=+-(60jj+-4h*6b4ao&a'
+SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = os.environ.get("DEBUG", "False").lower == "true"
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = os.environ.get("ALLOWED_HOSTS").split(" ")
 
 
 # Application definition
@@ -77,12 +78,14 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'helpbridge_db',
-        'USER': 'postgres',
-        'PASSWORD': '1111',
-        'HOST': 'localhost',
-        'PORT': '5432',
     }
 }
+
+database_url = os.environ.get("DATABASE_URL")
+
+DATABASES["default"] = dj_database_url.parse(database_url)
+
+# postgresql://helpbridge_db_user:X4EkgucLZ8awKNXy2Gkhpj7bdlALJQSe@dpg-d7t2jl1kh4rs739i6ee0-a.oregon-postgres.render.com/helpbridge_db
 
 
 # Password validation

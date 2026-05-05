@@ -1,0 +1,19 @@
+{
+  "name": "helpbridge-tests",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test:unit": "jest --runInBand",
+    "test:e2e": "cypress run",
+    "cypress:open": "cypress open",
+    "test:e2e:run": "powershell -ExecutionPolicy Bypass -File ./scripts/run_cypress.ps1",
+    "cypress:open-ui": "powershell -ExecutionPolicy Bypass -File ./scripts/open_cypress_ui.ps1"
+  },
+  "devDependencies": {
+    "@testing-library/dom": "^10.4.1",
+    "cypress": "^15.14.2",
+    "jest": "^30.3.0",
+    "jest-environment-jsdom": "^30.3.0",
+    "jsdom": "^29.1.1"
+  }
+}
